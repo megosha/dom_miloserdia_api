@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 #todo класс Settings для настроек meta, почты, обратной связи, логгирования и тд
 class ArticleKind(models.Model):
-    kind = models.CharField(verbose_name="Тип статьи")
+    kind = models.CharField(max_length=100, verbose_name="Тип статьи")
 
     class Meta:
         verbose_name = "Тип статьи"
@@ -34,8 +34,8 @@ class Article(models.Model):
 class Partner(models.Model):
     # если есть сайт, то по нажатию на лого - на сайт, иначе на страницу партнера на сайте
     title = models.CharField(max_length=100, verbose_name="Наименование партнёра")
-    logo = models.ImageField(blank=True, verbose_name="Логотип")
-    site = models.CharField(blank=True, verbose_name="Сайт")
+    logo = models.ImageField(upload_to='images/logos/', blank=True, verbose_name="Логотип")
+    site = models.CharField(max_length=100, blank=True, verbose_name="Сайт")
     description = models.TextField(null=True, blank=True, verbose_name="Краткое описание")
     activity = models.CharField(max_length=250, blank=True, verbose_name="Сфера деятельности")
     email = models.EmailField(blank=True, verbose_name="Email")

@@ -2,6 +2,7 @@ from django.contrib.postgres.fields import ArrayField
 from django.db import models
 
 # Create your models here.
+#todo класс Settings для настроек meta, почты, обратной связи, логгирования и тд
 class ArticleKind(models.Model):
     kind = models.CharField(verbose_name="Тип статьи")
 
@@ -30,7 +31,7 @@ class Article(models.Model):
     def __str__(self):
         return f'{self.kind} -  {self.title} - {self.date_create}'
 
-class Partners(models.Model):
+class Partner(models.Model):
     # если есть сайт, то по нажатию на лого - на сайт, иначе на страницу партнера на сайте
     title = models.CharField(max_length=100, verbose_name="Наименование партнёра")
     logo = models.ImageField(blank=True, verbose_name="Логотип")

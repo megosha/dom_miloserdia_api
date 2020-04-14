@@ -26,7 +26,6 @@ class ShowPhotoInline(admin.TabularInline):
         return tpl.render({"photo": instance.photo})
     showphoto_thumbnail.short_description = _("Thumbnail")
 
-
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ['title', 'kind', 'date_create', 'video']
     search_fields = ['title']
@@ -48,11 +47,11 @@ class PartnerAdmin(admin.ModelAdmin, DynamicArrayMixin):
             return ''
         return mark_safe(f'<a href="{obj.logo.url}" target="_blank"><img src="{obj.logo.url}" height="55px"/></a>')
 
-    icon_tag.short_description = 'Icon'
+    icon_tag.short_description = 'Логотип'
     icon_tag.allow_tags = True
     readonly_fields = ['icon_tag']
 
-    list_display = ['title', 'icon_tag', 'site', 'email', 'address', 'description', 'activity']
+    list_display = ['pk', 'title', 'icon_tag', 'site', 'email', 'address', 'description', 'activity']
     search_fields = ['title', 'email', 'description', 'activity']
     list_display_links = ['title']
     # list_editable = ['email', 'description', 'activity']

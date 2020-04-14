@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_better_admin_arrayfield',
     'easy_thumbnails',
+    'rest_framework',
     'api',
 ]
 

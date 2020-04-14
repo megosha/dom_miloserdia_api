@@ -17,7 +17,14 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework.routers import SimpleRouter
+
+from api import views
+
+router = SimpleRouter()
+
+router.register('api/partnersall', views.Partners)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + router.urls

@@ -1,5 +1,7 @@
-from django.contrib.postgres.fields import ArrayField
+# from django.contrib.postgres.fields import ArrayField
+from django_better_admin_arrayfield.models.fields import ArrayField
 from django.db import models
+
 
 # Create your models here.
 #todo класс Settings для настроек meta, почты, обратной связи, логгирования и тд
@@ -20,8 +22,7 @@ class Article(models.Model):
     date_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания статьи")
     title = models.CharField(max_length=250, verbose_name="Заголовок статьи")
     content = models.TextField(verbose_name="Содержание (текст) статьи")
-    photos = ArrayField(models.ImageField(blank=True), blank=True, verbose_name="Фотографии (одна или несколько)")
-    video = models.FileField(null=True, blank=True, verbose_name="Видео (одно)")
+    video = models.FileField(upload_to='videos/', null=True, blank=True, verbose_name="Видео (одно)")
 
     class Meta:
         ordering = ["-date_create"]
@@ -31,10 +32,19 @@ class Article(models.Model):
     def __str__(self):
         return f'{self.kind} -  {self.title} - {self.date_create}'
 
+class Photo(models.Model):
+    article = models.ForeignKey('Article', null=True, blank=True, default=None, on_delete=models.CASCADE,
+                             verbose_name="Статья")
+    photo = models.ImageField(verbose_name="Фотографии (одна или несколько)")
+
+    def __str__(self):
+        return f'{self.photo.name}'
+
 class Partner(models.Model):
     # если есть сайт, то по нажатию на лого - на сайт, иначе на страницу партнера на сайте
     title = models.CharField(max_length=100, verbose_name="Наименование партнёра")
     logo = models.ImageField(upload_to='images/logos/', blank=True, verbose_name="Логотип")
+    important = models.BooleanField(default=False, verbose_name="Отобразить в блоке важных")
     site = models.CharField(max_length=100, blank=True, verbose_name="Сайт")
     description = models.TextField(null=True, blank=True, verbose_name="Краткое описание")
     activity = models.CharField(max_length=250, blank=True, verbose_name="Сфера деятельности")

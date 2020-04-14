@@ -1,6 +1,11 @@
 from django.contrib import admin
+from django.template.loader import get_template
+from django.utils.translation import gettext as _
+
 from api import models
 from django.utils.safestring import mark_safe
+from django_better_admin_arrayfield.admin.mixins import DynamicArrayMixin
+from api.forms import ShowAdminForm
 
 
 # Register your models here.
@@ -10,29 +15,44 @@ class ArticleKindAdmin(admin.ModelAdmin):
     # save_on_top = True
 
 
+class ShowPhotoInline(admin.TabularInline):
+    model = models.Photo
+    fields = ("showphoto_thumbnail",)
+    readonly_fields = ("showphoto_thumbnail",)
+    max_num = 0
+    def showphoto_thumbnail(self, instance):
+        """A (pseudo)field that returns an image thumbnail for a show photo."""
+        tpl = get_template("api/admin/show_thumbnail.html")
+        return tpl.render({"photo": instance.photo})
+    showphoto_thumbnail.short_description = _("Thumbnail")
+
+
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['title', 'kind', 'date_create']
+    list_display = ['title', 'kind', 'date_create', 'video']
     search_fields = ['title']
     list_display_links = ['title']
     list_filter = ['kind', 'date_create']
-    # save_on_top = True
+    readonly_fields = ("date_create",)
 
-from imagekit.admin import AdminThumbnail
+    form = ShowAdminForm
+    inlines = [ShowPhotoInline]
 
-class PartnerAdmin(admin.ModelAdmin):
-    # def image_tag(self, obj):
-    #     return format_html('<img src="{}" />'.format(obj.logo.url))
+    def save_related(self, request, form, formsets, change):
+        super().save_related(request, form, formsets, change)
+        form.save_photos(form.instance)
 
+
+class PartnerAdmin(admin.ModelAdmin, DynamicArrayMixin):
     def icon_tag(self, obj):
         if not (obj.pk and obj.logo):
             return ''
-        return mark_safe(f'<img src="{obj.logo.url}" />')
+        return mark_safe(f'<a href="{obj.logo.url}" target="_blank"><img src="{obj.logo.url}" height="55px"/></a>')
 
     icon_tag.short_description = 'Icon'
     icon_tag.allow_tags = True
     readonly_fields = ['icon_tag']
 
-    list_display = ['title', 'icon_tag', 'logo', 'site', 'email', 'address', 'description', 'activity']
+    list_display = ['title', 'icon_tag', 'site', 'email', 'address', 'description', 'activity']
     search_fields = ['title', 'email', 'description', 'activity']
     list_display_links = ['title']
     # list_editable = ['email', 'description', 'activity']

@@ -1,7 +1,8 @@
 # from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet, ReadOnlyModelViewSet
 
-from api import models, serializers
+from api import serializers
+from front import models
 
 
 # Create your views here.

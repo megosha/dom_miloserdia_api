@@ -19,12 +19,22 @@ from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework.routers import SimpleRouter
 
-from api import views
+import api.views
+import front.views
 
 router = SimpleRouter()
 
-router.register('api/partnersall', views.Partners)
+router.register('api/partnersall', api.views.Partners)
 
 urlpatterns = [
-                  path('admin/', admin.site.urls),
+                path('admin/', admin.site.urls),
+                path('', front.views.Index.as_view()),
+                path('corp_radost/', front.views.CorpRadost.as_view()),
+                path('den_miloserdia/', front.views.DenMiloserdia.as_view()),
+                path('territoria_dobra/', front.views.TerritoriaDobra.as_view()),
+                path('blagodarnost/', front.views.Blagodarnost.as_view()),
+                path('otchet/', front.views.Otchet.as_view()),
+                path('rehabilitation/', front.views.Rehabilitation.as_view()),
+                path('partner/<int:partner_id>', front.views.Partner.as_view()),
+
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + router.urls

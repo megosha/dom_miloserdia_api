@@ -2,3 +2,4 @@
 *.bat
 secret*
 .env
+/api/migrations/

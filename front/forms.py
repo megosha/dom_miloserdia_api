@@ -3,7 +3,7 @@ from django.core.validators import validate_image_file_extension
 from django.utils.translation import gettext as _
 
 
-from api.models import Article, Photo
+from front.models import Article, Photo
 
 
 class ShowAdminForm(forms.ModelForm):

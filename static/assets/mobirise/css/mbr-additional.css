@@ -788,6 +788,10 @@ section.lazy-placeholder:after {
   background: #ececec;
 }
 
+.align_middle{
+  align-items: center;
+}
+
 
 .cid-rRBb7ZCkE0 img {
   width: 130px;

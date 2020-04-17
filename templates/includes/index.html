@@ -82,35 +82,11 @@
             </div>
             {% for ip in important_partners %}
                 <div class="col-lg-1 col-md-3 card">
-{#                <a href="/partner/{{ ip.pk }}" target="_blank"><img src="{{ ip.logo.url }}" title="{{ ip.title }}" alt="{{ ip.title }}" height="100px"></a>#}
-                <a href="/partner/{{ ip.pk }}" target="_blank"><img src="{{ ip.logo.url }}" title="{{ ip.title }}" alt="{{ ip.title }}"></a>
+{#                    <a href="/partner/{{ ip.pk }}" target="_blank"><img src="{{ ip.logo.url }}" title="{{ ip.title }}" alt="{{ ip.title }}"></a>#}
+                    <a href="/partner/{{ ip.pk }}" target="_blank" title="{{ ip.title }}" class="text-center">{% if ip.logo %}<img src="{{ ip.logo.url }}" alt="" title="">{% else %}{{ ip.title }}{% endif %}</a>
 
                 </div>
             {% endfor %}
-{#            <div class="col-lg-1 col-md-3 card">#}
-{#                <img src="../../static/assets/images/1.png">#}
-{#            </div>#}
-{#            <div class="col-lg-1 col-md-3 card">#}
-{#                <img src="../../static/assets/images/2.png">#}
-{#            </div>#}
-{#            <div class="col-lg-1 col-md-3 card">#}
-{#                <img src="../../static/assets/images/3.png">#}
-{#            </div>#}
-{#            <div class="col-lg-1 col-md-3 card">#}
-{#                <img src="../../static/assets/images/4.png">#}
-{#            </div>#}
-{#            <div class="col-lg-1 col-md-3 card">#}
-{#                <img src="../../static/assets/images/5.png">#}
-{#            </div>#}
-{#            <div class="col-lg-1 col-md-3 card">#}
-{#                <img src="../../static/assets/images/1.png">#}
-{#            </div>#}
-{#            <div class="col-lg-1 col-md-3 card">#}
-{#                <img src="../../static/assets/images/2.png">#}
-{#            </div>#}
-{#            <div class="col-lg-1 col-md-3 card">#}
-{#                <img src="../../static/assets/images/3.png">#}
-{#            </div>#}
         </div>
     </div>
 </section>
@@ -128,99 +104,117 @@
                 <h2 class="align-center pb-3 mbr-fonts-style display-2">
                     Лента</h2>
                 <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et vero asperiores dolorem placeat blanditiis eligendi iure laborum, eum ratione ullam dolore at assumenda ad inventore alias.
+                    Наш фонд регулярно участвует в благотворительных проектах. Подробнее о прошедших и планирующихся мероприятиях можно узнать из статей новостной ленты фонда.
                 </h3>
-                <div class="mbr-section-btn title-btn align-center"><a class="btn btn-info-outline display-4" href="lenta.html">Читать все</a></div>
+                <div class="mbr-section-btn title-btn align-center"><a class="btn btn-info-outline display-4" href="/lenta">Читать все</a></div>
             </div>
+
+            {% for a in articles %}
             <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">
                 <div class="card-wrapper">
                     <div class="card-img">
-                        <img src="../../static/assets/images/1.jpg" alt="">
+                        <img class="custom" src="{{ a.cover.url }}" alt="">
                     </div>
                     <div class="card-box">
                         <p class="mbr-text mbr-fonts-style align-center display-7">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            {{ a.content|truncatewords:16 }}
                         </p>
-                        <div class="mbr-section-btn card-btn align-center"><a href="article.html" class="btn btn-success display-4">
+                        <div class="mbr-section-btn card-btn align-center"><a href="/article/{{ a.pk }}" class="btn btn-success display-4">
                                Побробнее</a></div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
-            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="../../static/assets/images/27.jpg" alt="">
-                    </div>
-                    <div class="card-box">
-                        <p class="mbr-text mbr-fonts-style align-center display-7">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                        <div class="mbr-section-btn card-btn align-center"><a href="article.html" class="btn btn-success display-4">
-                                Побробнее</a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="../../static/assets/images/2.jpg" alt="">
-                    </div>
-                    <div class="card-box">
-                        <p class="mbr-text mbr-fonts-style align-center display-7">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                        <div class="mbr-section-btn card-btn align-center"><a href="#" class="btn btn-success display-4">
-                                Побробнее</a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="../../static/assets/images/3.jpg" alt="">
-                    </div>
-                    <div class="card-box">
-                        <p class="mbr-text mbr-fonts-style align-center display-7">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                        <div class="mbr-section-btn card-btn align-center"><a href="#" class="btn btn-success display-4">
-                                Побробнее</a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="../../static/assets/images/17.jpg" alt="">
-                    </div>
-                    <div class="card-box">
-                        <p class="mbr-text mbr-fonts-style align-center display-7">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                        <div class="mbr-section-btn card-btn align-center"><a href="#" class="btn btn-success display-4">
-                                Побробнее</a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="../../static/assets/images/32.jpg" alt="">
-                    </div>
-                    <div class="card-box">
-                        <p class="mbr-text mbr-fonts-style align-center display-7">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        </p>
-                        <div class="mbr-section-btn card-btn align-center"><a href="#" class="btn btn-success display-4">
-                                Побробнее</a></div>
-                    </div>
-                </div>
-            </div>
+{#            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">#}
+{#                <div class="card-wrapper">#}
+{#                    <div class="card-img">#}
+{#                        <img src="../../static/assets/images/1.jpg" alt="">#}
+{#                    </div>#}
+{#                    <div class="card-box">#}
+{#                        <p class="mbr-text mbr-fonts-style align-center display-7">#}
+{#                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.#}
+{#                        </p>#}
+{#                        <div class="mbr-section-btn card-btn align-center"><a href="article.html" class="btn btn-success display-4">#}
+{#                               Побробнее</a></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">#}
+{#                <div class="card-wrapper">#}
+{#                    <div class="card-img">#}
+{#                        <img src="../../static/assets/images/27.jpg" alt="">#}
+{#                    </div>#}
+{#                    <div class="card-box">#}
+{#                        <p class="mbr-text mbr-fonts-style align-center display-7">#}
+{#                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.#}
+{#                        </p>#}
+{#                        <div class="mbr-section-btn card-btn align-center"><a href="article.html" class="btn btn-success display-4">#}
+{#                                Побробнее</a></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">#}
+{#                <div class="card-wrapper">#}
+{#                    <div class="card-img">#}
+{#                        <img src="../../static/assets/images/2.jpg" alt="">#}
+{#                    </div>#}
+{#                    <div class="card-box">#}
+{#                        <p class="mbr-text mbr-fonts-style align-center display-7">#}
+{#                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.#}
+{#                        </p>#}
+{#                        <div class="mbr-section-btn card-btn align-center"><a href="#" class="btn btn-success display-4">#}
+{#                                Побробнее</a></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">#}
+{#                <div class="card-wrapper">#}
+{#                    <div class="card-img">#}
+{#                        <img src="../../static/assets/images/3.jpg" alt="">#}
+{#                    </div>#}
+{#                    <div class="card-box">#}
+{#                        <p class="mbr-text mbr-fonts-style align-center display-7">#}
+{#                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.#}
+{#                        </p>#}
+{#                        <div class="mbr-section-btn card-btn align-center"><a href="#" class="btn btn-success display-4">#}
+{#                                Побробнее</a></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">#}
+{#                <div class="card-wrapper">#}
+{#                    <div class="card-img">#}
+{#                        <img src="../../static/assets/images/17.jpg" alt="">#}
+{#                    </div>#}
+{#                    <div class="card-box">#}
+{#                        <p class="mbr-text mbr-fonts-style align-center display-7">#}
+{#                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.#}
+{#                        </p>#}
+{#                        <div class="mbr-section-btn card-btn align-center"><a href="#" class="btn btn-success display-4">#}
+{#                                Побробнее</a></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{##}
+{#            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">#}
+{#                <div class="card-wrapper">#}
+{#                    <div class="card-img">#}
+{#                        <img src="../../static/assets/images/32.jpg" alt="">#}
+{#                    </div>#}
+{#                    <div class="card-box">#}
+{#                        <p class="mbr-text mbr-fonts-style align-center display-7">#}
+{#                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.#}
+{#                        </p>#}
+{#                        <div class="mbr-section-btn card-btn align-center"><a href="#" class="btn btn-success display-4">#}
+{#                                Побробнее</a></div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
         </div>
     </div>
 </section>
@@ -248,170 +242,183 @@
                 <div class="carousel-inner" data-visible="6">
                     
                     
+                {% for partner in partners %}
+                    {% if forloop.counter <= 20 %}
+                        <div class="carousel-item ">
+                            <div class="media-container-row align_middle">
+                                <div class="col-md-12">
+                                    <div class="wrap-img ">
+                                        <a href="/partner/{{ partner.pk }}" target="_blank" title="{{ partner.title }}">{% if partner.logo %}<img src="{{ partner.logo.url }}" class="img-responsive clients-img" alt="" title="">{% else %}{{ partner.title }}{% endif %}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
                     
                     
-                    
-                <div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://skajijiznida.ru" target="_blank"><img src="../../static/assets/images/cube-240x172.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://hotelgoldenkey.ru" target="_blank"><img src="../../static/assets/images/logotype-558x620.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div>
+{#                <div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://skajijiznida.ru" target="_blank"><img src="../../static/assets/images/cube-240x172.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://hotelgoldenkey.ru" target="_blank"><img src="../../static/assets/images/logotype-558x620.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+            </div>
             </div>
             <div class="carousel-controls">
                 <a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev">
@@ -439,170 +446,183 @@
                 <div class="carousel-inner" data-visible="6">
                     
                     
+                    {% for p in partners %}
+                    {% if forloop.counter > 20 %}
+                        <div class="carousel-item ">
+                            <div class="media-container-row align_middle">
+                                <div class="col-md-12">
+                                    <div class="wrap-img ">
+                                        <a href="/partner/{{ p.pk }}" target="_blank" title="{{ p.title }}">{% if p.logo %}<img src="{{ p.logo.url }}" class="img-responsive clients-img" alt="" title="">{% else %}{{ p.title }}{% endif %}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
                     
                     
-                    
-                <div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="соль-сибири.рф" target="_blank"><img src="../../static/assets/images/saltsib-144x69.jpg" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="page8.html"><img src="file:///C:/Users/Margarita%20home/AppData/Local/Mobirise.com/Mobirise/andrey_002eholy_0040gmail_002ecom/addons/mobirise4-blocks/components" class="img-responsive clients-img" alt="Производственная компания " title="Производственная компания "></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="https://2gis.ru/barnaul/firm/563478235331553"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Мясной магазин ИП Кузнецов АА"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://dommiloserdie.ru/extraelektrika/"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Экстра Электрика"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://dommiloserdie.ru/sufel/"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Кондитерский цех &quot;Суфэль&quot;"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://dommiloserdie.ru/bilaraluks/"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Оптовая компания &quot;Билара люкс&quot;"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://dommiloserdie.ru/matreshka/"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Оптовая компания &quot;Матрёшка&quot;"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="https://www.instagram.com/natali_dekorbrn/?igshid=llt2v1genn0d"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Студия свадебного декора Natali"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="https://2gis.ru/barnaul/firm/70000001023149676"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Формула улыбки"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="https://2gis.ru/barnaul/firm/563478235175869"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Гиском Деревообрабатывающая компания"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="https://2gis.ru/barnaul/firm/563478234410032"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Техпромблок Деревообрабатывающая компания"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="https://eds22.ru" target="_blank"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="ООО &quot;АБК-ЭНЕРГО&quot;"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="https://2gis.ru/barnaul/search/максиарт?m=83.769718%2C53.35504%2F11" target="_blank"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="МаксиАрт"></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://климат22.рф"><img src="../../static/assets/images/4-1.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://www.duim22.ru"><img src="../../static/assets/images/3-1.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://promkotli.ru"><img src="../../static/assets/images/5-1.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://dommiloserdie.ru/oxi/"><img src="../../static/assets/images/2-1.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://dommiloserdie.ru/ins-tpk/"><img src="../../static/assets/images/1-1.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="http://altaynerud.ru"><img src="../../static/assets/images/1-1.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div><div class="carousel-item ">
-                        <div class="media-container-row">
-                            <div class="col-md-12">
-                                <div class="wrap-img ">
-                                    <a href="partner.html"><img src="../../static/assets/images/5-1.png" class="img-responsive clients-img" alt="" title=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div></div>
+{#                <div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="соль-сибири.рф" target="_blank"><img src="../../static/assets/images/saltsib-144x69.jpg" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="page8.html"><img src="file:///C:/Users/Margarita%20home/AppData/Local/Mobirise.com/Mobirise/andrey_002eholy_0040gmail_002ecom/addons/mobirise4-blocks/components" class="img-responsive clients-img" alt="Производственная компания " title="Производственная компания "></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="https://2gis.ru/barnaul/firm/563478235331553"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Мясной магазин ИП Кузнецов АА"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://dommiloserdie.ru/extraelektrika/"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Экстра Электрика"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://dommiloserdie.ru/sufel/"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Кондитерский цех &quot;Суфэль&quot;"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://dommiloserdie.ru/bilaraluks/"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Оптовая компания &quot;Билара люкс&quot;"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://dommiloserdie.ru/matreshka/"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Оптовая компания &quot;Матрёшка&quot;"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="https://www.instagram.com/natali_dekorbrn/?igshid=llt2v1genn0d"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Студия свадебного декора Natali"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="https://2gis.ru/barnaul/firm/70000001023149676"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Формула улыбки"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="https://2gis.ru/barnaul/firm/563478235175869"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Гиском Деревообрабатывающая компания"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="https://2gis.ru/barnaul/firm/563478234410032"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Техпромблок Деревообрабатывающая компания"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="https://eds22.ru" target="_blank"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="ООО &quot;АБК-ЭНЕРГО&quot;"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="https://2gis.ru/barnaul/search/максиарт?m=83.769718%2C53.35504%2F11" target="_blank"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="МаксиАрт"></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://климат22.рф"><img src="../../static/assets/images/4-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://www.duim22.ru"><img src="../../static/assets/images/3-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://promkotli.ru"><img src="../../static/assets/images/5-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://dommiloserdie.ru/oxi/"><img src="../../static/assets/images/2-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://dommiloserdie.ru/ins-tpk/"><img src="../../static/assets/images/1-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="http://altaynerud.ru"><img src="../../static/assets/images/1-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div><div class="carousel-item ">#}
+{#                        <div class="media-container-row">#}
+{#                            <div class="col-md-12">#}
+{#                                <div class="wrap-img ">#}
+{#                                    <a href="partner.html"><img src="../../static/assets/images/5-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+            </div>
             </div>
             <div class="carousel-controls">
                 <a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev">

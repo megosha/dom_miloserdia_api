@@ -27,11 +27,20 @@ class ShowPhotoInline(admin.TabularInline):
     showphoto_thumbnail.short_description = _("Thumbnail")
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['title', 'kind', 'date_create', 'video']
+    def cover_tag(self, obj):
+        if not (obj.pk and obj.cover):
+            return ''
+        return mark_safe(f'<a href="{obj.cover.url}" target="_blank"><img src="{obj.cover.url}" height="70px"/></a>')
+
+    cover_tag.short_description = 'Обложка'
+    cover_tag.allow_tags = True
+    readonly_fields = ['cover_tag', "date_create",]
+
+    list_display = ['title', 'kind', 'date_create', 'cover_tag']
     search_fields = ['title']
     list_display_links = ['title']
     list_filter = ['kind', 'date_create']
-    readonly_fields = ("date_create",)
+    # readonly_fields = ("date_create",)
 
     form = ShowAdminForm
     inlines = [ShowPhotoInline]
@@ -45,16 +54,17 @@ class PartnerAdmin(admin.ModelAdmin, DynamicArrayMixin):
     def icon_tag(self, obj):
         if not (obj.pk and obj.logo):
             return ''
-        return mark_safe(f'<a href="{obj.logo.url}" target="_blank"><img src="{obj.logo.url}" height="55px"/></a>')
+        return mark_safe(f'<a href="{obj.logo.url}" target="_blank"><img src="{obj.logo.url}" height="50px"/></a>')
 
     icon_tag.short_description = 'Логотип'
     icon_tag.allow_tags = True
     readonly_fields = ['icon_tag']
 
-    list_display = ['pk', 'title', 'icon_tag', 'site', 'email', 'address', 'description', 'activity']
+    list_display = ['pk', 'title', 'icon_tag', 'important', 'site', 'email', 'address', 'description', 'activity']
     search_fields = ['title', 'email', 'description', 'activity']
     list_display_links = ['title']
-    # list_editable = ['email', 'description', 'activity']
+    list_filter = ['important',]
+    # list_editable = ['important']
 
 
 admin.site.register(models.ArticleKind, ArticleKindAdmin)

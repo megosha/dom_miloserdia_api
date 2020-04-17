@@ -12,8 +12,11 @@ class ShowAdminForm(forms.ModelForm):
         fields = (
             "kind",
             "title",
+            "cover",
             "content",
-            "video",
+            # "video",
+            "videolink",
+            "videocover",
         )
 
     photos = forms.FileField(

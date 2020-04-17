@@ -21,8 +21,11 @@ class Article(models.Model):
                              verbose_name="Тип статьи")
     date_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания статьи")
     title = models.CharField(max_length=250, verbose_name="Заголовок статьи")
+    cover = models.FileField(upload_to='images/covers/', blank=True, verbose_name="Обложка статьи")
     content = models.TextField(verbose_name="Содержание (текст) статьи")
-    video = models.FileField(upload_to='videos/', null=True, blank=True, verbose_name="Видео (одно)")
+    # video = models.FileField(upload_to='videos/', null=True, blank=True, verbose_name="Видео (одно)")
+    videolink = models.URLField(null=True, blank=True, verbose_name="Ссылка на видео (одно)")
+    videocover = models.FileField(upload_to='images/covers/', blank=True, verbose_name="Обложка видео")
 
     class Meta:
         ordering = ["-date_create"]
@@ -35,7 +38,7 @@ class Article(models.Model):
 class Photo(models.Model):
     article = models.ForeignKey('Article', null=True, blank=True, default=None, on_delete=models.CASCADE,
                              verbose_name="Статья")
-    photo = models.ImageField(verbose_name="Фотографии (одна или несколько)")
+    photo = models.ImageField(upload_to='images/articles/', verbose_name="Фотографии (одна или несколько)")
 
     def __str__(self):
         return f'{self.photo.name}'

@@ -36,5 +36,7 @@ urlpatterns = [
                 path('otchet/', front.views.Otchet.as_view()),
                 path('rehabilitation/', front.views.Rehabilitation.as_view()),
                 path('partner/<int:partner_id>', front.views.Partner.as_view()),
+                path('lenta/', front.views.Lenta.as_view()),
+                path('article/<int:article_id>', front.views.Article.as_view()),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + router.urls

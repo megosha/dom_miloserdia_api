@@ -237,6 +237,14 @@ figure[mbr-media-size] {
 .card-img img {
   width: 100%; }
 
+.card-img .custom {
+   width: unset!important;
+  height: 250px !important; }
+
+.card-img .lenta {
+   width: 250px!important;
+  height: 200px !important; }
+
 @media (max-width: 991px) {
   .media-size-item {
     width: auto !important; }

@@ -884,7 +884,7 @@ section.lazy-placeholder:after {
   text-align: center;
 }
 .cid-rRBedsGt6w .carousel-item .wrap-img img {
-  max-height: 150px;
+  max-height: 125px;
   width: auto;
   max-width: 100%;
 }
@@ -8877,13 +8877,13 @@ section.lazy-placeholder:after {
   }
 }
 .cid-rSVkuH4MrL {
-  padding-top: 75px;
+  padding-top: 200px;
   padding-bottom: 75px;
   background-color: #ffffff;
 }
 @media (max-width: 992px) {
   .cid-rSVkuH4MrL {
-    padding-top: 50px;
+    padding-top: 100px;
     padding-bottom: 50px;
   }
 }
@@ -8909,7 +8909,7 @@ section.lazy-placeholder:after {
   background-color: #f1894c;
 }
 .cid-rSVkuH4MrL .box {
-  background-image: url("/static/assets/images/17.jpg");
+  /*background-image: url("/static/assets/images/17.jpg");*/
   background-size: cover;
   background-position: center;
   height: 550px;

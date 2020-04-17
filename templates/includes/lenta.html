@@ -27,49 +27,7 @@
 
 </head>
 <body>
-  <section class="menu cid-rVz2j1yhEI" once="menu" id="menu01-3e">
-
-    
-
-    <nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </button>
-        <div class="menu-logo">
-            <div class="navbar-brand">
-                <span class="navbar-logo">
-                    <a href="/">
-                        <img src="../../static/assets/images/-mini-250x128.png" alt="" title="" style="height: 4rem;">
-                    </a>
-                </span>
-                
-            </div>
-        </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black display-7" href="/">Главная</a></li><li class="nav-item">
-                    <a class="nav-link link text-black display-7" href="index.html#extFeatures27-9">Лента</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link link text-black dropdown-toggle display-7" href="#" data-toggle="dropdown-submenu" aria-expanded="false">
-                        Проекты</a>
-                    <div class="dropdown-menu"><a class="text-black dropdown-item display-7" href="corp_radost.html">Корпорация радости</a><a class="text-black dropdown-item display-7" href="den_miloserdia.html">День милосердия</a><a class="text-black dropdown-item display-7" href="terriroria_dobra.html" aria-expanded="false">Территория добра</a></div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link link text-black dropdown-toggle display-7" href="#" data-toggle="dropdown-submenu" aria-expanded="false">
-                        Информация</a>
-                    <div class="dropdown-menu"><a class="text-black dropdown-item display-7" href="blagodarnost.html">Благодарности</a><a class="text-black dropdown-item display-7" href="otchetnost.html">Отчётность</a></div>
-                </li>
-                <li class="nav-item"><a class="nav-link link text-black display-7" href="reabilitacia.html#extContent8-1c">Реабилитация</a></li>
-                <li class="nav-item"><a class="nav-link link text-black display-7" href="index.html#map01-j">Контакты</a></li></ul>
-            
-        </div>
-    </nav>
-</section>
+  {% include "navbar.html" %}
 
 <section class="extFeatures cid-rSVg4A0BkL" id="extFeatures34-2u">
 
@@ -80,16 +38,17 @@
         
         <div class="row row-content justify-content-center">
 
+            {% for article in articles %}
 
             <div class="card p-3 col-lg-12 col-md-12">
 
                 <div class="card-wrapper">
                     <div class="card-img">
-                        <img src="../../static/assets/images/mbr-664x560.jpg" title="" alt="">
+                        <img class="" src="{{ article.cover.url }}" title="" alt="">
                         <div class="card-box">
-                            
 
-                            
+
+
 
                         </div>
                     </div>
@@ -98,171 +57,60 @@
 
                         <div class="text-box">
                             <div>
-                                <h4 class="card-title2 mbr-fonts-style mbr-normal align-left display-5">Корпорация радости</h4>
+                                <h4 class="card-title2 mbr-fonts-style mbr-normal align-left display-5">{{ article.title }}</h4>
                                 <div class="ico-box">
                                     <span class="pr-2 mbr-iconfont mbr-iconfont-social ico2 li_calendar"></span>
-                                    <p class="mbr-text mbr-fonts-style phone mbr-normal display-4">05.05.2019</p>
+                                    <p class="mbr-text mbr-fonts-style phone mbr-normal display-4">{{ article.date_create|date:"d.m.Y" }}</p>
                                 </div>
                             </div>
 
-                            <div class="mbr-section-btn"><a href="article.html" class="btn btn-primary-outline display-4">
-                                    Читать</a></div>
+
 
 
                         </div>
                         <div class="p-box">
                             <p class="mbr-text mbr-fonts-style mbr-normal display-4">
-                            Почему болеют дети? Почему получают различные травмы? Почему существуют неизлечимые заболевания? Вряд ли кто-то сможет дать полный и развёрнутый ответ на все эти вопросы, а вот поддержать ребёнка в этот непростой период его жизни (болезни) может...</p>
+                            {{ article.content|truncatewords:30 }}</p>
                         </div>
-
-                        
-                    </div>
-
-                </div>
-            </div>
-
-
-            <div class="card p-3 col-lg-12 col-md-12">
-
-                <div class="card-wrapper">
-                    <div class="card-img">
-                        <img src="../../static/assets/images/img-604-1024x576.jpg" title="" alt="">
-                        <div class="card-box">
-                            
-
-                            
-
-                        </div>
-                    </div>
-
-                    <div class="content-wrapper">
-
-                        <div class="text-box">
-                            <div>
-                                <h4 class="card-title2 mbr-fonts-style mbr-normal display-5">В Барнауле продолжается благотворительная<br>акция «Соберем детей в школу»</h4>
-                                <div class="ico-box">
-                                    <span class="pr-2 mbr-iconfont mbr-iconfont-social ico2 li_calendar"></span>
-                                    <p class="mbr-text mbr-fonts-style phone mbr-normal display-4">20.06.2019</p>
-                                </div>
-                            </div>
-
-                            <div class="mbr-section-btn"><a href="article.html" class="btn btn-primary-outline display-4">
+                        <div class="mbr-section-btn ico-box"><a href="/article/{{ article.pk }}" class="btn btn-primary-outline btn-sm display-4">
                                     Читать</a></div>
 
-
-                        </div>
-                        <div class="p-box">
-                            <p class="mbr-text mbr-fonts-style mbr-normal display-4">
-                            К участию приглашают неравнодушных горожан и предприятия, которые могут оказать помощь в подготовке детей к учебному году нуждающимся в этом семьям...</p>
-                        </div>
-
-                        
                     </div>
 
                 </div>
             </div>
+        {% endfor %}
 
-            
 
-
+            {% if articles.has_other_pages %}
+                <ul class="pagination font-weight-bold">
+                    {% if articles.has_previous %}
+                        <li class="mx-2"><a href="/lenta?page={{ articles.previous_page_number }}">&laquo;</a></li>
+                    {% else %}
+                        <li class="disabled mx-2"><span>&laquo;</span></li>
+                    {% endif %}
+                    {% for i in articles.paginator.page_range %}
+                        {% if articles.number == i %}
+                            <li class="active mx-2"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+                        {% else %}
+                            <li class="mx-2"><a href="/lenta?page={{ i }}">{{ i }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if articles.has_next %}
+                        <li class="mx-2"><a href="/lenta?page={{ articles.next_page_number }}">&raquo;</a></li>
+                    {% else %}
+                        <li class="disabled mx-2"><span>&raquo;</span></li>
+                    {% endif %}
+                </ul>
+            {% endif %}
         </div>
+
     </div>
+
+
+
 </section>
-
-<section class="extFooter cid-rSrG0YgYdx" id="extFooter23-2r" data-rv-view="1515">
-
-    
-
-    
-
-    <div class="container">
-        <div class="row content mbr-white justify-content-center">
-            <div class="col-lg-3 col-md-6">
-                <h2 class="mb-4 footer-main-title mbr-fonts-style display-2">
-                    Реквизиты</h2>
-<!--                 <div mbr-form class="media-container-column"> -->
-                    <!---Formbuilder Form--->
-<!--                     <form action name="Mobirise Form" method="POST" class="mbr-form form-with-styler"> -->
-<!--                         <div class="row"> -->
-<!--                             <div hidden="hidden" data-form-alert class="alert alert-success col-12">Thanks for filling out the form!</div> -->
-<!--                             <div hidden="hidden" data-form-alert-danger class="alert alert-danger col-12"> -->
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                         <div class="dragArea row"> -->
-<!--                         <div class="col-md-12 form-group m-0" data-for="email"> -->
-<!--                             <input type="email" name="email" placeholder="Enter Your Email*" data-form-field="Email" mbr-theme-style="display-7" required="required" class="form-control input-sm input-inverse my-2"> -->
-<!--                         </div> -->
-<!--                         <div class="col-md-12 input-group-btn mx-0 my-2 " mbr-buttons="true" mbr-theme-style="display-4" data-toolbar="-mbrBtnMove,-mbrBtnLink,-mbrBtnAdd"> -->
-<!--                             <a type="submit" class="btn btn-white-outline m-0 btn-form">Subscribe</a> -->
-<!--                         </div> -->
-<!--                         </div> -->
-<!--                     <span class="gdpr-block">
-<label>
-<span class="textGDPR" style="color: #a7a7a7"><input type="checkbox" name="gdpr" id="gdpr-input" required>Подтверждаю своё согласие c <a style="color: #f1894c; text-decoration: underline;" href='/policy'>Пользовательским соглашением об использовании персональных данных</a> </span>
-</label>
-</span></form> -->
-            <!---Formbuilder Form--->
-<!--                 </div> -->
-                <p class="mbr-text mbr-fonts-style form-text mt-4 display-4">Номер счёта: 40703810623150000048
-<br>Валюта: Рубли
-<br>ИНН: 2225156191
-<br>Банк: ФИЛИАЛ «НОВОСИБИРСКИЙ» АО «АЛЬФА-БАНК»
-<br>КПП: 222501001
-<br>БИК: 045004774
-<br>Кор. счёт: 30101810600000000774</p>
-            </div>
-
-            <div class="col-md-6 col-lg-3">
-                <h3 class="mb-4 mbr-fonts-style footer-title display-5">
-                    Контакты</h3>
-                <div class="mbr-footer-list mbr-fonts-style display-4">
-                    <ul class="list">
-                        <li>Телефон:&nbsp;<a href="tel:+7-913-210-3693">+7 913 210 3693</a></li><li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<a href="tel:+7-3852-603693">603-693</a></li>
-                        <li>Email: <a href="mailto:dommiloserdie@bk.ru">dommiloserdie@bk.ru</a></li>
-                        <li>Адрес: пр.Комсомольский, 80, офис 304</li>
-                    </ul>
-                </div>
-                <div class="social-list pl-0 mb-0">
-                    <div class="soc-item">
-                        <a href="https://vk.com/club180037587" target="_blank">
-                            <span class="mbr-iconfont mbr-iconfont-social socicon-vkontakte socicon" media-simple="true"></span>
-                        </a>
-                    </div>
-                    <div class="soc-item">
-                        <a href="https://instagram.com/dommi_loserdie?igshid=lq8xw4oabnke" target="_blank">
-                            <span class="mbr-iconfont mbr-iconfont-social socicon-instagram socicon" media-simple="true"></span>
-                        </a>
-                    </div>
-                    <div class="soc-item">
-                        <a href="https://2gis.ru/barnaul/search/дом милосердия/firm/563478235285199?m=83.786267%2C53.343786%2F16" target="_blank">
-                            <span class="mbr-iconfont mbr-iconfont-social mbri-pin" media-simple="true"></span>
-                        </a>
-                    </div>
-                    
-                    
-                    
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <h3 class="mb-4 footer-title mbr-fonts-style display-5">
-                    Разделы</h3>
-                <div class="mbr-footer-list mbr-fonts-style display-4">
-                    <ul class="list">
-                        <li><a href="index.html" class="text-white">Главная</a></li><li><a href="index.html#extFeatures27-9" class="text-white">Лента</a></li><li><a href="corp_radost.html" class="text-white">Корпорация радости</a></li><li><a href="den_miloserdia.html" class="text-white">День милосердия</a></li><li><a href="terriroria_dobra.html" class="text-white">Территория добра</a></li><li><a href="terriroria_dobra.html" class="text-white">Благодарности</a></li><li><a href="otchetnost.html" class="text-white">Отчётность</a></li><li><a href="reabilitacia.html" class="text-white">Реабилитация</a></li><li><a href="index.html#extTabs8-2d" class="text-white">Новости России</a><br></li><li><a href="index.html#extTabs8-2a" class="text-white">Мировые новости</a></li><li><br></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-                <h3 class="mb-4 footer-title mbr-fonts-style display-5"></h3>
-                <div class="mbr-footer-list mbr-fonts-style display-4">
-                    <ul class="list">
-                        <li>© Esina MV <a href="mailto:me@electis.ru">me@electis.ru</a> - All Rights Reserved</li></ul><p><span style="font-size: 1rem;">Наш партнер <a href="page8.html" class="text-white">KUKU.io</a> - SMM инструменты для бизнеса агентств и штатных специалистов</span><br></p><ul class="list">
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+{% include "footer.html" %}
 
 
   <script src="../../static/assets/web/assets/jquery/jquery.min.js"></script>

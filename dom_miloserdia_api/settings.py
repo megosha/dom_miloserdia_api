@@ -108,7 +108,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 THUMBNAIL_ALIASES = {
     "": {
-        "small": {"size": (150, 150)}
+        "small": {"size": (150, 150)},
+        "slider": {"size": (1024, 576)}
     },
 }
 

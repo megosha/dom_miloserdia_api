@@ -37,6 +37,7 @@
     <div class="container">
         
         <div class="row row-content justify-content-center">
+        <h2 class="mbr-section-title mbr-fonts-style mbr-bold display-2">{% if header == 1 %}Мировые новости{% elif header == 2 %}Новости России{% else %}Лента{% endif %}</h2>
 
             {% for article in articles %}
 
@@ -79,30 +80,15 @@
 
                 </div>
             </div>
-        {% endfor %}
+            {% empty %}
+               <div class="card p-3 col-lg-12 col-md-12">
+                <p class="text-center h3">В этом разделе статей пока нет. <br><a href="/">Перейти на Главную</a></p>
+               </div>
 
+            {% endfor %}
 
-            {% if articles.has_other_pages %}
-                <ul class="pagination font-weight-bold">
-                    {% if articles.has_previous %}
-                        <li class="mx-2"><a href="/lenta?page={{ articles.previous_page_number }}">&laquo;</a></li>
-                    {% else %}
-                        <li class="disabled mx-2"><span>&laquo;</span></li>
-                    {% endif %}
-                    {% for i in articles.paginator.page_range %}
-                        {% if articles.number == i %}
-                            <li class="active mx-2"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-                        {% else %}
-                            <li class="mx-2"><a href="/lenta?page={{ i }}">{{ i }}</a></li>
-                        {% endif %}
-                    {% endfor %}
-                    {% if articles.has_next %}
-                        <li class="mx-2"><a href="/lenta?page={{ articles.next_page_number }}">&raquo;</a></li>
-                    {% else %}
-                        <li class="disabled mx-2"><span>&raquo;</span></li>
-                    {% endif %}
-                </ul>
-            {% endif %}
+        {% include "paginator.html" %}
+
         </div>
 
     </div>

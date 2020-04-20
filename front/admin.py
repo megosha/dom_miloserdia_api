@@ -66,7 +66,11 @@ class PartnerAdmin(admin.ModelAdmin, DynamicArrayMixin):
     list_filter = ['important',]
     # list_editable = ['important']
 
+class ReportAdmin(admin.ModelAdmin):
+    list_display = ['period', 'title', 'file']
+    list_display_links = ['period']
 
 admin.site.register(models.ArticleKind, ArticleKindAdmin)
 admin.site.register(models.Article, ArticleAdmin)
 admin.site.register(models.Partner, PartnerAdmin)
+admin.site.register(models.Report, ReportAdmin)

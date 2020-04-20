@@ -113,6 +113,8 @@
             <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">
                 <div class="card-wrapper">
                     <div class="card-img">
+                        <h3 class="mbr-section-subtitle pb-1 mbr-fonts-style display-7">📅
+                    {{ a.date_create|date:"j M Y" }}</h3>
                         <img class="custom" src="{{ a.cover.url }}" alt="">
                     </div>
                     <div class="card-box">
@@ -125,96 +127,6 @@
                 </div>
             </div>
             {% endfor %}
-
-{#            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">#}
-{#                <div class="card-wrapper">#}
-{#                    <div class="card-img">#}
-{#                        <img src="../../static/assets/images/1.jpg" alt="">#}
-{#                    </div>#}
-{#                    <div class="card-box">#}
-{#                        <p class="mbr-text mbr-fonts-style align-center display-7">#}
-{#                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.#}
-{#                        </p>#}
-{#                        <div class="mbr-section-btn card-btn align-center"><a href="article.html" class="btn btn-success display-4">#}
-{#                               Побробнее</a></div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">#}
-{#                <div class="card-wrapper">#}
-{#                    <div class="card-img">#}
-{#                        <img src="../../static/assets/images/27.jpg" alt="">#}
-{#                    </div>#}
-{#                    <div class="card-box">#}
-{#                        <p class="mbr-text mbr-fonts-style align-center display-7">#}
-{#                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.#}
-{#                        </p>#}
-{#                        <div class="mbr-section-btn card-btn align-center"><a href="article.html" class="btn btn-success display-4">#}
-{#                                Побробнее</a></div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">#}
-{#                <div class="card-wrapper">#}
-{#                    <div class="card-img">#}
-{#                        <img src="../../static/assets/images/2.jpg" alt="">#}
-{#                    </div>#}
-{#                    <div class="card-box">#}
-{#                        <p class="mbr-text mbr-fonts-style align-center display-7">#}
-{#                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.#}
-{#                        </p>#}
-{#                        <div class="mbr-section-btn card-btn align-center"><a href="#" class="btn btn-success display-4">#}
-{#                                Побробнее</a></div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">#}
-{#                <div class="card-wrapper">#}
-{#                    <div class="card-img">#}
-{#                        <img src="../../static/assets/images/3.jpg" alt="">#}
-{#                    </div>#}
-{#                    <div class="card-box">#}
-{#                        <p class="mbr-text mbr-fonts-style align-center display-7">#}
-{#                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.#}
-{#                        </p>#}
-{#                        <div class="mbr-section-btn card-btn align-center"><a href="#" class="btn btn-success display-4">#}
-{#                                Побробнее</a></div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">#}
-{#                <div class="card-wrapper">#}
-{#                    <div class="card-img">#}
-{#                        <img src="../../static/assets/images/17.jpg" alt="">#}
-{#                    </div>#}
-{#                    <div class="card-box">#}
-{#                        <p class="mbr-text mbr-fonts-style align-center display-7">#}
-{#                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.#}
-{#                        </p>#}
-{#                        <div class="mbr-section-btn card-btn align-center"><a href="#" class="btn btn-success display-4">#}
-{#                                Побробнее</a></div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#            <div class="card px-3 py-4 col-12 col-md-6 col-lg-4 col-xl-3">#}
-{#                <div class="card-wrapper">#}
-{#                    <div class="card-img">#}
-{#                        <img src="../../static/assets/images/32.jpg" alt="">#}
-{#                    </div>#}
-{#                    <div class="card-box">#}
-{#                        <p class="mbr-text mbr-fonts-style align-center display-7">#}
-{#                            Lorem ipsum dolor sit amet, consectetur adipisicing elit.#}
-{#                        </p>#}
-{#                        <div class="mbr-section-btn card-btn align-center"><a href="#" class="btn btn-success display-4">#}
-{#                                Побробнее</a></div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
         </div>
     </div>
 </section>
@@ -255,169 +167,6 @@
                         </div>
                     {% endif %}
                 {% endfor %}
-                    
-                    
-{#                <div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://skajijiznida.ru" target="_blank"><img src="../../static/assets/images/cube-240x172.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://hotelgoldenkey.ru" target="_blank"><img src="../../static/assets/images/logotype-558x620.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://remobest.ru" target="_blank"><img src="../../static/assets/images/logo-1202x362.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
             </div>
             </div>
             <div class="carousel-controls">
@@ -435,11 +184,6 @@
 </section>
 
 <section class="extClients clients cid-rSrn1Xu1JM" data-interval="false" id="extClients3-y">
-      
-
-    
-    
-
     <div class="container">
         <div class="carousel slide" role="listbox" data-pause="true" data-keyboard="false" data-ride="carousel" data-interval="4000">
             <div class="slider-clients">
@@ -459,169 +203,7 @@
                         </div>
                     {% endif %}
                 {% endfor %}
-                    
-                    
-{#                <div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="соль-сибири.рф" target="_blank"><img src="../../static/assets/images/saltsib-144x69.jpg" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="page8.html"><img src="file:///C:/Users/Margarita%20home/AppData/Local/Mobirise.com/Mobirise/andrey_002eholy_0040gmail_002ecom/addons/mobirise4-blocks/components" class="img-responsive clients-img" alt="Производственная компания " title="Производственная компания "></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="https://2gis.ru/barnaul/firm/563478235331553"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Мясной магазин ИП Кузнецов АА"></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://dommiloserdie.ru/extraelektrika/"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Экстра Электрика"></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://dommiloserdie.ru/sufel/"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Кондитерский цех &quot;Суфэль&quot;"></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://dommiloserdie.ru/bilaraluks/"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Оптовая компания &quot;Билара люкс&quot;"></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://dommiloserdie.ru/matreshka/"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Оптовая компания &quot;Матрёшка&quot;"></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="https://www.instagram.com/natali_dekorbrn/?igshid=llt2v1genn0d"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Студия свадебного декора Natali"></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="https://2gis.ru/barnaul/firm/70000001023149676"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Формула улыбки"></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="https://2gis.ru/barnaul/firm/563478235175869"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Гиском Деревообрабатывающая компания"></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="https://2gis.ru/barnaul/firm/563478234410032"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="Техпромблок Деревообрабатывающая компания"></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="https://eds22.ru" target="_blank"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="ООО &quot;АБК-ЭНЕРГО&quot;"></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="https://2gis.ru/barnaul/search/максиарт?m=83.769718%2C53.35504%2F11" target="_blank"><img src="../../static/assets/images/mbr-1920x1440.png" class="img-responsive clients-img" alt="" title="МаксиАрт"></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://климат22.рф"><img src="../../static/assets/images/4-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://www.duim22.ru"><img src="../../static/assets/images/3-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://promkotli.ru"><img src="../../static/assets/images/5-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://dommiloserdie.ru/oxi/"><img src="../../static/assets/images/2-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://dommiloserdie.ru/ins-tpk/"><img src="../../static/assets/images/1-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="http://altaynerud.ru"><img src="../../static/assets/images/1-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div><div class="carousel-item ">#}
-{#                        <div class="media-container-row">#}
-{#                            <div class="col-md-12">#}
-{#                                <div class="wrap-img ">#}
-{#                                    <a href="partner.html"><img src="../../static/assets/images/5-1.png" class="img-responsive clients-img" alt="" title=""></a>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                    </div>#}
+
             </div>
             </div>
             <div class="carousel-controls">
@@ -645,92 +227,41 @@
     
     <div class="container">
         <h2 class="mbr-section-title align-center mbr-fonts-style pb-3 display-2">Новости России</h2>
-         <h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style pb-3 display-7"><a href="news_russia.html">Перейти ко всем</a></h3>
+         <h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style pb-3 display-7"><a href="/lenta/russia">Перейти ко всем</a></h3>
         <div class="media-container-row">
             <div class="col-12 col-md-10">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#extTabs8-2d_tab0" aria-selected="true">
-                            Tab 1
+                    {% for nr in news_rus %}
+                        <li class="nav-item" title="{{ nr.title }}"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#extTabs8-2d_tab{{ forloop.counter0 }}" aria-selected="true">
+                            {{ nr.title|truncatewords:4 }}
                         </a></li>
-                    <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#extTabs8-2d_tab1" aria-selected="true">
-                            Tab 2
-                        </a></li>
-                    <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#extTabs8-2d_tab2" aria-selected="true">
-                            Tab 3
-                        </a></li>
+                    {% endfor %}
+
                     
                 </ul>
                 <div class="tab-content">
-                    <div id="tab1" class="tab-pane in active" role="tabpanel">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5"> 
-                                Lorem ipsum dolor sit amet
-                                </h4>
-                                <p class="mbr-text mbr-fonts-style align-left display-7">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem laudantium in adipisci ipsa optio quas id excepturi non, eos cupiditate, necessitatibus sapiente illo error. Vero adipisci quidem aut itaque labore.
-                                </p>
-                                <div class="mbr-section-btn"><a class="btn-underline mr-3 text-primary display-4" href="page14.html">Читать дальше</a></div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card-img"><img src="../../static/assets/images/01.jpg" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="tab2" class="tab-pane" role="tabpanel">
-                        <div class="row">
-                           <div class="col-lg-6">
-                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5"> 
-                                Lorem ipsum dolor sit amet
-                                </h4>
-                                <p class="mbr-text mbr-fonts-style align-left display-7">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem laudantium in adipisci ipsa optio quas id excepturi non, eos cupiditate, necessitatibus sapiente illo error. Vero adipisci quidem aut itaque labore.
-                                </p>
-                                 <div class="mbr-section-btn">
-                                    <a class="btn-underline mr-3 text-info display-4" href="#">Read More</a>
+                    {% for nr in news_rus %}
+                        <div id="tab{{ forloop.counter }}" class="tab-pane in active" role="tabpanel">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <p class="mbr-text mbr-fonts-style align-left display-7">
+                                        {{ nr.date_create }}
+                                    </p>
+                                    <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5">
+                                    {{ nr.title }}
+                                    </h4>
+                                    <p class="mbr-text mbr-fonts-style align-left display-7">
+                                        {{ nr.content|truncatewords:20 }}
+                                    </p>
+                                    <div class="mbr-section-btn"><a class="btn-underline mr-3 text-primary display-4" href="/article/{{ nr.pk }}">Читать дальше</a></div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="card-img"><img class="custom" src="{{ nr.cover.url }}" alt=""></div>
                                 </div>
                             </div>
-                              <div class="col-lg-6 pb-3">
-                                <div class="card-img"><img src="../../static/assets/images/02.jpg" alt=""></div>
-                            </div>
                         </div>
-                    </div>
-                    <div id="tab3" class="tab-pane" role="tabpanel">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5"> 
-                                Lorem ipsum dolor sit amet
-                                </h4>
-                                <p class="mbr-text mbr-fonts-style align-left display-7">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem laudantium in adipisci ipsa optio quas id excepturi non, eos cupiditate, necessitatibus sapiente illo error. Vero adipisci quidem aut itaque labore.
-                                </p>
-                                <div class="mbr-section-btn">
-                                    <a class="btn-underline mr-3 text-info display-4" href="#">Read More</a>
-                                </div>
-                            </div>
-                              <div class="col-lg-6">
-                                <div class="card-img"><img src="../../static/assets/images/03.jpg" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="tab4" class="tab-pane" role="tabpanel">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5"> 
-                                Lorem ipsum dolor sit amet
-                                </h4>
-                                <p class="mbr-text mbr-fonts-style align-left display-7">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem laudantium in adipisci ipsa optio quas id excepturi non, eos cupiditate, necessitatibus sapiente illo error. Vero adipisci quidem aut itaque labore.
-                                </p>
-                                <div class="mbr-section-btn">
-                                    <a class="btn-underline mr-3 text-info display-4" href="#">Read More</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card-img"><img src="../../static/assets/images/04.jpg" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
             </div>
         </div>
@@ -746,92 +277,118 @@
         <h2 class="mbr-section-title align-center mbr-fonts-style pb-3 display-2">
             Мировые новости</h2>
          <h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style pb-3 display-7"> 
-            <a href="news_world.html">Перейти ко всем</a></h3>
+            <a href="/lenta/world">Перейти ко всем</a></h3>
         <div class="media-container-row">
             <div class="col-12 col-md-10">
                 <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#extTabs8-2a_tab0" aria-selected="true">
-                            Tab 1
-                        </a></li>
-                    <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#extTabs8-2a_tab1" aria-selected="true">
-                            Tab 2
-                        </a></li>
-                    <li class="nav-item"><a class="nav-link mbr-fonts-style show display-7" role="tab" data-toggle="tab" href="#extTabs8-2a_tab2" aria-selected="false">
-                            Tab 3
-                        </a></li>
+                    {% for nw in news_world %}
+                        <li class="nav-item" title="{{ nw.title }}"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#extTabs8-2a_tab{{ forloop.counter0 }}" aria-selected="true">
+                            {{ nw.title|truncatewords:4 }}
+                            </a></li>
+                    {% endfor %}
+{#                    <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#extTabs8-2a_tab0" aria-selected="true">#}
+{#                            Tab 1#}
+{#                        </a></li>#}
+{#                    <li class="nav-item"><a class="nav-link mbr-fonts-style show active display-7" role="tab" data-toggle="tab" href="#extTabs8-2a_tab1" aria-selected="true">#}
+{#                            Tab 2#}
+{#                        </a></li>#}
+{#                    <li class="nav-item"><a class="nav-link mbr-fonts-style show display-7" role="tab" data-toggle="tab" href="#extTabs8-2a_tab2" aria-selected="false">#}
+{#                            Tab 3#}
+{#                        </a></li>#}
                     
                 </ul>
                 <div class="tab-content">
-                    <div id="tab1" class="tab-pane in active" role="tabpanel">
+                    {% for nw in news_world %}
+                    <div id="tab{{ forloop.counter }}" class="tab-pane in active" role="tabpanel">
                         <div class="row">
                             <div class="col-lg-6">
-                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5"> 
-                                Lorem ipsum dolor sit amet
+                                <p class="mbr-text mbr-fonts-style align-left display-7">
+                                        {{ nw.date_create }}
+                                    </p>
+                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5">
+                                {{ nw.title }}
                                 </h4>
                                 <p class="mbr-text mbr-fonts-style align-left display-7">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem laudantium in adipisci ipsa optio quas id excepturi non, eos cupiditate, necessitatibus sapiente illo error. Vero adipisci quidem aut itaque labore.
+                                    {{ nw.content|truncatewords:20 }}
                                 </p>
-                                <div class="mbr-section-btn"><a class="btn-underline mr-3 text-primary display-4" href="page14.html">Читать дальше</a></div>
+                                <div class="mbr-section-btn"><a class="btn-underline mr-3 text-primary display-4" href="/article/{{ nw.pk }}">Читать дальше</a></div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="card-img"><img src="../../static/assets/images/01.jpg" alt=""></div>
+                                <div class="card-img"><img class="custom" src="{{ nw.cover.url }}" alt=""></div>
                             </div>
                         </div>
                     </div>
-                    <div id="tab2" class="tab-pane" role="tabpanel">
-                        <div class="row">
-                           <div class="col-lg-6">
-                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5"> 
-                                Lorem ipsum dolor sit amet
-                                </h4>
-                                <p class="mbr-text mbr-fonts-style align-left display-7">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem laudantium in adipisci ipsa optio quas id excepturi non, eos cupiditate, necessitatibus sapiente illo error. Vero adipisci quidem aut itaque labore.
-                                </p>
-                                 <div class="mbr-section-btn">
-                                    <a class="btn-underline mr-3 text-info display-4" href="#">Read More</a>
-                                </div>
-                            </div>
-                              <div class="col-lg-6 pb-3">
-                                <div class="card-img"><img src="../../static/assets/images/02.jpg" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="tab3" class="tab-pane" role="tabpanel">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5"> 
-                                Lorem ipsum dolor sit amet
-                                </h4>
-                                <p class="mbr-text mbr-fonts-style align-left display-7">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem laudantium in adipisci ipsa optio quas id excepturi non, eos cupiditate, necessitatibus sapiente illo error. Vero adipisci quidem aut itaque labore.
-                                </p>
-                                <div class="mbr-section-btn">
-                                    <a class="btn-underline mr-3 text-info display-4" href="#">Read More</a>
-                                </div>
-                            </div>
-                              <div class="col-lg-6">
-                                <div class="card-img"><img src="../../static/assets/images/03.jpg" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="tab4" class="tab-pane" role="tabpanel">
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5"> 
-                                Lorem ipsum dolor sit amet
-                                </h4>
-                                <p class="mbr-text mbr-fonts-style align-left display-7">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem laudantium in adipisci ipsa optio quas id excepturi non, eos cupiditate, necessitatibus sapiente illo error. Vero adipisci quidem aut itaque labore.
-                                </p>
-                                <div class="mbr-section-btn">
-                                    <a class="btn-underline mr-3 text-info display-4" href="#">Read More</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="card-img"><img src="../../static/assets/images/04.jpg" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
+                     {% endfor %}
+{#                    <div id="tab1" class="tab-pane in active" role="tabpanel">#}
+{#                        <div class="row">#}
+{#                            <div class="col-lg-6">#}
+{#                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5"> #}
+{#                                Lorem ipsum dolor sit amet#}
+{#                                </h4>#}
+{#                                <p class="mbr-text mbr-fonts-style align-left display-7">#}
+{#                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem laudantium in adipisci ipsa optio quas id excepturi non, eos cupiditate, necessitatibus sapiente illo error. Vero adipisci quidem aut itaque labore.#}
+{#                                </p>#}
+{#                                <div class="mbr-section-btn"><a class="btn-underline mr-3 text-primary display-4" href="page14.html">Читать дальше</a></div>#}
+{#                            </div>#}
+{#                            <div class="col-lg-6">#}
+{#                                <div class="card-img"><img src="../../static/assets/images/01.jpg" alt=""></div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div id="tab2" class="tab-pane" role="tabpanel">#}
+{#                        <div class="row">#}
+{#                           <div class="col-lg-6">#}
+{#                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5"> #}
+{#                                Lorem ipsum dolor sit amet#}
+{#                                </h4>#}
+{#                                <p class="mbr-text mbr-fonts-style align-left display-7">#}
+{#                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem laudantium in adipisci ipsa optio quas id excepturi non, eos cupiditate, necessitatibus sapiente illo error. Vero adipisci quidem aut itaque labore.#}
+{#                                </p>#}
+{#                                 <div class="mbr-section-btn">#}
+{#                                    <a class="btn-underline mr-3 text-info display-4" href="#">Read More</a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                              <div class="col-lg-6 pb-3">#}
+{#                                <div class="card-img"><img src="../../static/assets/images/02.jpg" alt=""></div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div id="tab3" class="tab-pane" role="tabpanel">#}
+{#                        <div class="row">#}
+{#                            <div class="col-lg-6">#}
+{#                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5"> #}
+{#                                Lorem ipsum dolor sit amet#}
+{#                                </h4>#}
+{#                                <p class="mbr-text mbr-fonts-style align-left display-7">#}
+{#                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem laudantium in adipisci ipsa optio quas id excepturi non, eos cupiditate, necessitatibus sapiente illo error. Vero adipisci quidem aut itaque labore.#}
+{#                                </p>#}
+{#                                <div class="mbr-section-btn">#}
+{#                                    <a class="btn-underline mr-3 text-info display-4" href="#">Read More</a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                              <div class="col-lg-6">#}
+{#                                <div class="card-img"><img src="../../static/assets/images/03.jpg" alt=""></div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <div id="tab4" class="tab-pane" role="tabpanel">#}
+{#                        <div class="row">#}
+{#                            <div class="col-lg-6">#}
+{#                                <h4 class="display-2 align-left title-content pb-2 mbr-fonts-style display-5"> #}
+{#                                Lorem ipsum dolor sit amet#}
+{#                                </h4>#}
+{#                                <p class="mbr-text mbr-fonts-style align-left display-7">#}
+{#                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem laudantium in adipisci ipsa optio quas id excepturi non, eos cupiditate, necessitatibus sapiente illo error. Vero adipisci quidem aut itaque labore.#}
+{#                                </p>#}
+{#                                <div class="mbr-section-btn">#}
+{#                                    <a class="btn-underline mr-3 text-info display-4" href="#">Read More</a>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                            <div class="col-lg-6">#}
+{#                                <div class="card-img"><img src="../../static/assets/images/04.jpg" alt=""></div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
                 </div>
             </div>
         </div>

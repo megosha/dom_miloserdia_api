@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from rest_framework.routers import SimpleRouter
@@ -25,7 +25,6 @@ import front.views
 router = SimpleRouter()
 
 router.register('api/partnersall', api.views.Partners)
-
 urlpatterns = [
                 path('admin/', admin.site.urls),
                 path('', front.views.Index.as_view()),
@@ -36,7 +35,10 @@ urlpatterns = [
                 path('otchet/', front.views.Otchet.as_view()),
                 path('rehabilitation/', front.views.Rehabilitation.as_view()),
                 path('partner/<int:partner_id>', front.views.Partner.as_view()),
-                path('lenta/', front.views.Lenta.as_view()),
+                re_path('^lenta/world', front.views.Lenta.as_view()),
+                re_path('^lenta/russia', front.views.Lenta.as_view()),
+                re_path('^lenta/', front.views.Lenta.as_view()),
                 path('article/<int:article_id>', front.views.Article.as_view()),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + router.urls
+

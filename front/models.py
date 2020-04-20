@@ -23,7 +23,6 @@ class Article(models.Model):
     title = models.CharField(max_length=250, verbose_name="Заголовок статьи")
     cover = models.FileField(upload_to='images/covers/', blank=True, verbose_name="Обложка статьи")
     content = models.TextField(verbose_name="Содержание (текст) статьи")
-    # video = models.FileField(upload_to='videos/', null=True, blank=True, verbose_name="Видео (одно)")
     videolink = models.URLField(null=True, blank=True, verbose_name="Ссылка на видео (одно)")
     videocover = models.FileField(upload_to='images/covers/', blank=True, verbose_name="Обложка видео")
 
@@ -59,6 +58,18 @@ class Partner(models.Model):
         ordering = ["title"]
         verbose_name = "Партнёр"
         verbose_name_plural = "Партнёры"
+
+    def __str__(self):
+        return f'{self.title}'
+
+class Report(models.Model):
+    period = models.CharField(max_length=100, verbose_name="Период/год")
+    title = models.CharField(max_length=100, verbose_name="Наименование файла")
+    file = models.FileField(upload_to='files/', blank=True, verbose_name="Файл с отчетом")
+
+    class Meta:
+        verbose_name = "Отчёт"
+        verbose_name_plural = "Отчеты"
 
     def __str__(self):
         return f'{self.title}'

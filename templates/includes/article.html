@@ -37,7 +37,7 @@
 
 
     <div class="container">
-        <a href="/lenta?page={{ prev_page }}" class="display-4">Вернуться к списку статей</a>
+        <a href="/lenta{% if article.kind.pk == 1 %}/world{% elif article.kind.pk == 2 %}/russia{% endif %}?page={{ prev_page }}" class="display-4">Перейти к списку статей</a>
         <div class="row justify-content-center align-left pt-4">
             <div class="col-lg-6 md-pb">
                 <h3 class="mbr-section-subtitle pb-1 mbr-fonts-style display-7">

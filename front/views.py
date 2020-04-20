@@ -20,10 +20,14 @@ class Index(View):
         important_partners = models.Partner.objects.filter(important=True)[:8]
         # для блоков -Наши партнеры-
         partners = models.Partner.objects.filter(important=False)
-        articles = models.Article.objects.filter(kind__pk=3).order_by("-date_create")[:6]
+        articles = models.Article.objects.filter(kind__pk=3).order_by("-date_create")[:3]
+        news_rus = models.Article.objects.filter(kind__pk=2).order_by("-date_create")[:3]
+        news_world = models.Article.objects.filter(kind__pk=1).order_by("-date_create")[:3]
         context = make_context(important_partners=important_partners,
                                partners=partners,
-                               articles=articles)
+                               articles=articles,
+                               news_rus=news_rus,
+                               news_world=news_world,)
         return render(request, 'includes/index.html', context)
 
 
@@ -52,7 +56,8 @@ class Blagodarnost(View):
 
 class Otchet(View):
     def get(self, request):
-        context = make_context()
+        reports = models.Report.objects.all()
+        context = make_context(reports=reports)
         return render(request, 'includes/otchetnost.html', context)
 
 """  РЕАБИЛИТАЦИЯ  """
@@ -64,8 +69,14 @@ class Rehabilitation(View):
 """ ЛЕНТА """
 class Lenta(View):
     def get(self, request):
-        articles = models.Article.objects.filter(kind__pk=3).order_by("-date_create")
-        paginator = Paginator(articles, 10)  # 3 posts in each page
+        if 'world' in request.path:
+            kind = 1
+        elif 'russia' in request.path:
+            kind = 2
+        else:
+            kind = 3
+        articles = models.Article.objects.filter(kind__pk=kind).order_by("-date_create")
+        paginator = Paginator(articles, 2)  # 3 posts in each page
         page = request.GET.get('page')
         try:
             articles = paginator.page(page)
@@ -76,9 +87,12 @@ class Lenta(View):
             # If page is out of range deliver last page of results
             articles = paginator.page(paginator.num_pages)
 
-        context = make_context(articles=articles, page=page)
+        context = make_context(articles=articles,
+                               page=page,
+                               header=kind)
         request.session['prev_lenta'] = f'{page}'
         return render(request, 'includes/lenta.html', context)
+
 
 """ СТАТЬЯ """
 class Article(View):

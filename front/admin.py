@@ -70,7 +70,14 @@ class ReportAdmin(admin.ModelAdmin):
     list_display = ['period', 'title', 'file']
     list_display_links = ['period']
 
+class SettingsAdmin(admin.ModelAdmin):
+    save_on_top = True
+    list_display = ['mailto']
+    list_display_links = ['mailto']
+
+
 admin.site.register(models.ArticleKind, ArticleKindAdmin)
 admin.site.register(models.Article, ArticleAdmin)
 admin.site.register(models.Partner, PartnerAdmin)
 admin.site.register(models.Report, ReportAdmin)
+admin.site.register(models.Settings, SettingsAdmin)

@@ -116,3 +116,8 @@ class Partner(View):
         context = make_context(partner=partner)
         return render(request, 'includes/partner.html', context)
 
+class Policy(View):
+    def get(self, request):
+        context = make_context()
+        return render(request, 'includes/policy.html', context)
+

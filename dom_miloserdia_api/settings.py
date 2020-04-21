@@ -138,3 +138,6 @@ else:
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'site/../media')
+
+EMAIL_CONFIG = env.email_url('EMAIL_URL', default='smtp://user@:password@localhost:25')
+vars().update(EMAIL_CONFIG)

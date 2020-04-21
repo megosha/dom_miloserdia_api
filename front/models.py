@@ -73,3 +73,13 @@ class Report(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+class Settings(models.Model):
+    mailto = models.EmailField(verbose_name="Почта, для уведомлений обратной связи")
+
+    class Meta:
+        verbose_name = "Настройки"
+        verbose_name_plural = "Настройки"
+
+    def __str__(self):
+        return f'{self.mailto}'

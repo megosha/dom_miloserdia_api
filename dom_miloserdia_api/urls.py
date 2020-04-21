@@ -21,6 +21,7 @@ from rest_framework.routers import SimpleRouter
 
 import api.views
 import front.views
+import api.ajax
 
 router = SimpleRouter()
 
@@ -39,6 +40,8 @@ urlpatterns = [
                 re_path('^lenta/russia', front.views.Lenta.as_view()),
                 re_path('^lenta/', front.views.Lenta.as_view()),
                 path('article/<int:article_id>', front.views.Article.as_view()),
+                path('policy/', front.views.Policy.as_view()),
+                path('api/feedback/', api.ajax.Feedback.as_view()),
 
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + router.urls
 

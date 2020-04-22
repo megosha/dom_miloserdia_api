@@ -34,10 +34,10 @@ class Feedback(View):
         env.read_env(os.path.join(base_dir, '.env'))
         from_email = env('FROM_EMAIL')
         sets = models.Settings.objects.get()
-        email = sets.mailto
+        emails = sets.mailto
         filename = os.path.join('/tmp', 'dom_miloserdia_rita', 'logs', 'feedback_log.txt')
         try:
-            send_mail(subject, message, from_email, (email,))  # , fail_silently=True)
+            send_mail(subject, message, from_email, emails)
         except Exception as e:
             print(e)
             try:

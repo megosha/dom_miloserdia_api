@@ -44,6 +44,7 @@ class ArticleAdmin(admin.ModelAdmin):
 
     form = ShowAdminForm
     inlines = [ShowPhotoInline]
+    save_on_top = True
 
     def save_related(self, request, form, formsets, change):
         super().save_related(request, form, formsets, change)
@@ -65,13 +66,13 @@ class PartnerAdmin(admin.ModelAdmin, DynamicArrayMixin):
     list_display_links = ['title']
     list_filter = ['important',]
     # list_editable = ['important']
+    save_on_top = True
 
 class ReportAdmin(admin.ModelAdmin):
     list_display = ['period', 'title', 'file']
     list_display_links = ['period']
 
-class SettingsAdmin(admin.ModelAdmin):
-    save_on_top = True
+class SettingsAdmin(admin.ModelAdmin, DynamicArrayMixin):
     list_display = ['mailto']
     list_display_links = ['mailto']
 

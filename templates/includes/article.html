@@ -31,41 +31,41 @@
 <body>
   {% include "navbar.html" %}
 
-<section class="content01 cid-rSV9IAzJW8" id="content01-2o">
-
-    
-
-
+  <section class="content02 cid-rWRWOFkXEt" id="content02-3i">
     <div class="container">
         <a href="/lenta{% if article.kind.pk == 1 %}/world{% elif article.kind.pk == 2 %}/russia{% endif %}?page={{ prev_page }}" class="display-4">Перейти к списку статей</a>
         <div class="row justify-content-center align-left pt-4">
-            <div class="col-lg-6 md-pb">
-                <h3 class="mbr-section-subtitle pb-1 mbr-fonts-style display-7">
+            <div class="col-lg-12 md-pb">
+                <h3 class="mbr-section-subtitle pb-2 mbr-fonts-style display-7">
                     {{ article.date_create }}</h3>
                 <h2 class="mbr-section-title mbr-bold pb-1 mbr-fonts-style display-1">{{ article.title }}</h2>
 
                 <div class="line-wrap">
                     <div class="line"></div>
                 </div>
+                <p class="mbr-text py-2 mbr-fonts-style display-7">
+                    {{ article.content|linebreaksbr  }}</p>
+
+
+
             </div>
 
-            <div class="col-lg-6">
-                <p class="mbr-text mbr-fonts-style display-7">
-                    {{ article.content|linebreaksbr  }}</p>
-            </div>
+
         </div>
     </div>
 </section>
 
   {% if photos %}
-    <section class="mbr-wowslider-container mbr-section mbr-section__container carousel slide mbr-section-nopadding mbr-wowslider-container--luxury" data-ride="carousel" data-keyboard="false" data-wrap="true" data-interval="false" id="wowslider-2p" data-rv-view="451" style="background-color: rgb(255,255,255);">
+    <section class="mbr-wowslider-container mbr-section mbr-section__container carousel slide mbr-section-nopadding mbr-wowslider-container--luxury" data-ride="carousel" data-keyboard="false" data-wrap="true" data-interval="false" id="wowslider-2p" data-rv-view="156" style="background-color: rgb(255, 255, 255);">
     <div class="mbr-wowslider">
         <div class="ws_images">
             <ul>
 
                 {% for ph in photos %}
                     <li>
-                        <img src="{{ ph.photo|thumbnail_url:'slider' }}" alt="" title="" width="1024px" height="576px">
+{#                        <img src="{{ ph.photo|thumbnail_url:'slider' }}" alt="" title="" width="1024px" height="576px">#}
+{#                        <img src="{{ ph.photo|thumbnail_url:'slider' }}" alt="" title="">#}
+                        <img src="{{ ph.photo.url }}" alt="" title="">
 {#                        <img src="../../static/assets/images/slide3.jpg" alt="" title="">#}
                     </li>
                 {% endfor %}
@@ -91,7 +91,8 @@
         </div>
         <div class="ws_shadow"></div>
         <div class="mbr-wowslider-options">
-            <div class="params" data-paddingbottom="0" data-anim-type="blast" data-theme="luxury" data-autoplay="true" data-paddingtop="0" data-fullscreen="true" data-showbullets="false" data-timeout="2" data-duration="2" data-height="576" data-width="1024" data-responsive="1" data-showcaptions="false" data-captionseffect="slide" data-hidecontrols="false"></div>
+{#            <div class="params" data-paddingbottom="1" data-anim-type="blast" data-theme="luxury" data-autoplay="true" data-paddingtop="1" data-fullscreen="true" data-showbullets="false" data-timeout="2" data-duration="2" data-height="576" data-width="1024" data-responsive="1" data-showcaptions="false" data-captionseffect="slide" data-hidecontrols="true"></div>#}
+            <div class="params" data-paddingbottom="1" data-anim-type="blast" data-theme="luxury" data-autoplay="true" data-paddingtop="1" data-fullscreen="true" data-showbullets="false" data-timeout="2" data-duration="2" data-height="600" data-width="600" data-responsive="1" data-showcaptions="false" data-captionseffect="slide" data-hidecontrols="true"></div>
         </div>
 </div></section>
 
@@ -167,42 +168,40 @@
 </section>
 
   {% endif %}
+  <section class="extFeatures cid-rWS2dL79cP" id="extCounters1-3o">
 
-{#<section class="extVideo cid-rSVkuH4MrL" id="extVideo1-2x">#}
-{#    <div class="back"></div>#}
-{##}
-{#    <div class="container align-center">#}
-{#        <div class="col-md-12 col-lg-12 text">#}
-{#            #}
-{#        </div>#}
-{##}
-{#        <div class="row justify-content-center">#}
-{#            <div class="mbr-white box col-md-12 col-12 col-lg-10">#}
-{#                <div class="mbr-media show-modal align-center py-2" data-modal=".modalWindow">#}
-{#                    <div class="icon-wrap">#}
-{#                        <span class="mbr-iconfont mobi-mbri-play mobi-mbri"></span>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{##}
-{#        </div>#}
-{#    </div>#}
-{#    <div>#}
-{#        <div class="modalWindow" style="display: none;">#}
-{#            <div class="modalWindow-container">#}
-{#                <div class="modalWindow-video-container">#}
-{#                    <div class="modalWindow-video">#}
-{#                        <iframe width="100%" height="100%" frameborder="0" allowfullscreen="1" data-src="https://www.youtube.com/watch?v=QIs695Irf6Y"></iframe>#}
-{#                    </div>#}
-{#                    <a class="close" role="button" data-dismiss="modal">#}
-{#                        <span aria-hidden="true" class="mbri-close mbr-iconfont closeModal"></span>#}
-{#                        <span class="sr-only">Close</span>#}
-{#                    </a>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
-{#    </div>#}
-{#</section>#}
+
+
+    <div class="container-fluid">
+        <div class="row justify-content-center align-center">
+            <div class="col-md-3 col-sm-6 stats-item col-md-6">
+                {% if prev_article and prev_article is not None %}
+                    <a href="/article/{{ prev_article.pk }}" >
+                        <span class="mbr-iconfont mbri-left"></span>
+                        <span class="heading mbr-card-title mbr-fonts-style display-5"><small>{{ prev_article.date_create|date:"d.m.Y" }}</small><br>{{ prev_article.title|truncatewords:10 }}</span>
+                    </a>
+                    {% else %}
+                        <br><br><h2 class="heading mbr-card-title mbr-fonts-style display-5 text-secondary">Нет более ранних статей</h2>
+                {% endif %}
+            </div>
+
+            <div class="col-md-3 col-sm-6 stats-item col-md-6">
+                {% if next_article and next_article is not None %}
+                    <a href="/article/{{ next_article.pk }}" >
+                        <span class="mbr-iconfont mbri-right"></span>
+                        <span class="heading mbr-card-title mbr-fonts-style display-5"><small>{{ next_article.date_create|date:"d.m.Y" }}</small><br>{{ next_article.title|truncatewords:10 }}</span>
+                    </a>
+                    {% else %}
+                        <br><br><h2 class="heading mbr-card-title mbr-fonts-style display-5 text-secondary">Нет более новых статей</h2>
+                {% endif %}
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>
 
 {% include "footer.html" %}
 

@@ -99,10 +99,16 @@ class Article(View):
     def get(self, request, article_id):
         article = models.Article.objects.filter(pk=article_id).first()
         if not article:
-            return HttpResponseRedirect('/lenta')
+            return HttpResponseRedirect('/')
         photos = models.Photo.objects.filter(article__pk=article_id)
         prev_page = request.session.pop('prev_lenta') if 'prev_lenta' in request.session else ''
-        context = make_context(article=article, photos=photos, prev_page=prev_page)
+        next_article = models.Article.objects.filter(pk__gt=article.pk, kind__pk=article.kind.pk).order_by('pk').first()
+        prev_article = models.Article.objects.filter(pk__lt=article.pk, kind__pk=article.kind.pk).order_by('pk').last()
+        context = make_context(article=article,
+                               photos=photos,
+                               prev_page=prev_page,
+                               next_article=next_article,
+                               prev_article=prev_article)
         return render(request, 'includes/article.html', context)
 
 """  Партнер  """

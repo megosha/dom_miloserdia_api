@@ -203,7 +203,7 @@
 .mbr-wowslider-container--luxury .mbr-wowslider .ws_bullets a { 
 	width:22px;
 	height:22px;
-	background: url(./bullet.png) left top;
+	background: url(bullet.png) left top;
 	float: left; 
 	text-indent: -4000px; 
 	position:relative;
@@ -223,7 +223,7 @@
 	z-index:60;
 	height: 7.1em;
 	width: 7.1em;
-	background-image: url(./arrows.png);
+	background-image: url(arrows.png);
 	background-size: 200%;
 }
 .mbr-wowslider-container--luxury .mbr-wowslider a.ws_next{
@@ -255,11 +255,11 @@
 }
 
 .mbr-wowslider-container--luxury .mbr-wowslider .ws_pause {
-    background-image: url(./pause.png);
+    background-image: url(pause.png);
 }
 
 .mbr-wowslider-container--luxury .mbr-wowslider .ws_play {
-    background-image: url(./play.png);
+    background-image: url(play.png);
 }
 
 .mbr-wowslider-container--luxury .mbr-wowslider .ws_pause:hover, .mbr-wowslider-container--luxury .mbr-wowslider .ws_play:hover {
@@ -357,7 +357,7 @@
 	bottom:-10px;
 	margin-left:-1px;
 	left:43px;
-	background:url(./triangle.png);
+	background:url(triangle.png);
 	width:15px;
 	height:6px;
 }.mbr-wowslider-container--luxury .mbr-wowslider .ws_bulframe div div{

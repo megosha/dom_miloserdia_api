@@ -8851,7 +8851,7 @@ section.lazy-placeholder:after {
 }
 .cid-rSV9IAzJW8 {
   padding-top: 75px;
-  padding-bottom: 75px;
+  padding-bottom: 10px;
   background-color: #ffffff;
 }
 .cid-rSV9IAzJW8 .line {
@@ -8876,8 +8876,95 @@ section.lazy-placeholder:after {
     padding-bottom: 2rem;
   }
 }
+.cid-rWRWOFkXEt {
+  padding-top: 45px;
+  padding-bottom: 0px;
+  background-color: #ffffff;
+}
+.cid-rWRWOFkXEt .line {
+  width: 35px;
+  height: 3px;
+  display: inline-block;
+  background: #ed4266;
+  transition: background 0.3s;
+  margin-bottom: 2rem;
+}
+.cid-rWRWOFkXEt H2 {
+  color: #36404c;
+}
+.cid-rWRWOFkXEt H3 {
+  color: #36404c;
+}
+.cid-rWRWOFkXEt .mbr-text,
+.cid-rWRWOFkXEt .mbr-section-btn {
+  color: #767676;
+}
+@media (max-width: 992px) {
+  .cid-rWRWOFkXEt .md-pb {
+    padding-bottom: 2rem;
+  }
+}
+.cid-rWRWOFkXEt img {
+  filter: invert(0.5);
+}
+.cid-rWS2dL79cP .stats-item:hover span{
+  color: #2e2e2e;
+}
+.cid-rWS2dL79cP .a:hover{
+  color: #2e2e2e;
+  transition: all 0.3s ease-in-out;
+}
+.cid-rWS2dL79cP .stats-item {
+  padding: 20px 20px;
+}
+.cid-rWS2dL79cP .stats-item:nth-child(2n) {
+  background-color: #ffffff;
+}
+.cid-rWS2dL79cP .stats-item:nth-child(odd) {
+  background-color: #ebeced;
+}
+.cid-rWS2dL79cP .stats-item > span{
+  transition: all 0.3s ease-in-out;
+}
+.cid-rWS2dL79cP .mbr-iconfont {
+  font-size: 30px;
+}
+
+.cid-rWS2dL79cP .heading {
+  margin: 15px 0;
+  color: #232323;
+}
+.cid-rWS2dL79cP .container {
+  min-width: 100%;
+  padding: 0;
+  margin: 0 auto;
+}
+@media (max-width: 768px) and (min-width: 577px) {
+  .cid-rWS2dL79cP .stats-item:first-child {
+    background: #ffffff;
+  }
+  .cid-rWS2dL79cP .stats-item:nth-child(2n) {
+    background: #ebeced;
+  }
+  .cid-rWS2dL79cP .stats-item:nth-child(0n+3) {
+    background: #ebeced none repeat scroll 0 center;
+  }
+  .cid-rWS2dL79cP .stats-item:last-child {
+    background: #ffffff;
+  }
+}
+.cid-rWS2dL79cP .counter {
+  text-align: center;
+  color: #000000;
+}
+.cid-rWS2dL79cP .mbr-card-title,
+.cid-rWS2dL79cP .mbr-iconfont {
+  text-align: center;
+  color: #f1894c;
+  display: block;
+}
 .cid-rSVkuH4MrL {
-  padding-top: 200px;
+  padding-top: 75px;
   padding-bottom: 75px;
   background-color: #ffffff;
 }

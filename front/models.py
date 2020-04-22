@@ -75,7 +75,8 @@ class Report(models.Model):
         return f'{self.title}'
 
 class Settings(models.Model):
-    mailto = models.EmailField(verbose_name="Почта, для уведомлений обратной связи")
+    # mailto = models.EmailField(verbose_name="Почта, для уведомлений обратной связи")
+    mailto = ArrayField(models.EmailField(), verbose_name="Почта, для уведомлений обратной связи")
 
     class Meta:
         verbose_name = "Настройки"

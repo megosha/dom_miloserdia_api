@@ -4,7 +4,6 @@ from django_better_admin_arrayfield.models.fields import ArrayField
 
 
 # Create your models here.
-#todo класс Settings для настроек meta, почты, обратной связи, логгирования и тд
 class ArticleKind(models.Model):
     kind = models.CharField(max_length=100, verbose_name="Тип статьи")
 

@@ -82,7 +82,7 @@ class Lenta(View):
         else:
             kind = 3
         articles = models.Article.objects.filter(kind__pk=kind).order_by("-date_create")
-        paginator = Paginator(articles, 2)  # 3 posts in each page
+        paginator = Paginator(articles, 10)  # 10 posts in each page
         page = request.GET.get('page')
         try:
             articles = paginator.page(page)

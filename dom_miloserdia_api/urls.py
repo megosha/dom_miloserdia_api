@@ -14,34 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from rest_framework.routers import SimpleRouter
 
-import api.views
-import front.views
-import api.ajax
-
-router = SimpleRouter()
-
-router.register('api/partnersall', api.views.Partners)
 urlpatterns = [
-                path('admin/', admin.site.urls),
-                path('', front.views.Index.as_view()),
-                path('corp_radost/', front.views.CorpRadost.as_view()),
-                path('den_miloserdia/', front.views.DenMiloserdia.as_view()),
-                path('territoria_dobra/', front.views.TerritoriaDobra.as_view()),
-                path('blagodarnost/', front.views.Blagodarnost.as_view()),
-                path('otchet/', front.views.Otchet.as_view()),
-                path('rehabilitation/', front.views.Rehabilitation.as_view()),
-                path('partner/<int:partner_id>', front.views.Partner.as_view()),
-                re_path('^lenta/world', front.views.Lenta.as_view()),
-                re_path('^lenta/russia', front.views.Lenta.as_view()),
-                re_path('^lenta/', front.views.Lenta.as_view()),
-                path('article/<int:article_id>', front.views.Article.as_view()),
-                path('policy/', front.views.Policy.as_view()),
-                path('api/feedback/', api.ajax.Feedback.as_view()),
+    path('admin/', admin.site.urls),
+    path('api/', include('api.urls')),
+    path('', include('front.urls')),
+]
 
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + router.urls
-
+urlpatterns.extend(static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))

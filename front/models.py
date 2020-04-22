@@ -77,6 +77,8 @@ class Report(models.Model):
 class Settings(models.Model):
     # mailto = models.EmailField(verbose_name="Почта, для уведомлений обратной связи")
     mailto = ArrayField(models.EmailField(), verbose_name="Почта, для уведомлений обратной связи")
+    metadescr = models.TextField(default='', blank=True, null=True, verbose_name="Meta Description")
+    metakeywords = models.TextField(default='', blank=True, null=True, verbose_name="Meta Keyword")
 
     class Meta:
         verbose_name = "Настройки"

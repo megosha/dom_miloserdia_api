@@ -8,7 +8,12 @@ from front import models
 
 
 def make_context(**kwargs):
-    context = {}
+    try:
+        settings = models.Settings.objects.get()
+    except:
+        context = {}
+    else:
+        context = {'settings':settings}
     if kwargs:
         for k, v in kwargs.items():
             context[f'{k}'] = v
@@ -20,6 +25,7 @@ class Index(View):
         important_partners = models.Partner.objects.filter(important=True)[:8]
         # для блоков -Наши партнеры-
         partners = models.Partner.objects.filter(important=False)
+        # для блоков Новостей
         articles = models.Article.objects.filter(kind__pk=3).order_by("-date_create")[:3]
         news_rus = models.Article.objects.filter(kind__pk=2).order_by("-date_create")[:3]
         news_world = models.Article.objects.filter(kind__pk=1).order_by("-date_create")[:3]
@@ -122,6 +128,7 @@ class Partner(View):
         context = make_context(partner=partner)
         return render(request, 'includes/partner.html', context)
 
+"""  Политика безопасности  """
 class Policy(View):
     def get(self, request):
         context = make_context()

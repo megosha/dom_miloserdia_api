@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django_better_admin_arrayfield',
     'easy_thumbnails',
     'rest_framework',
-    # 'api',
+    'api',
     'front',
     # 'solo',
 ]

@@ -1,5 +1,8 @@
+from datetime import datetime
+
 from django.db import models
 # from django.contrib.postgres.fields import ArrayField
+from django.utils import timezone
 from django_better_admin_arrayfield.models.fields import ArrayField
 
 
@@ -18,7 +21,8 @@ class ArticleKind(models.Model):
 class Article(models.Model):
     kind = models.ForeignKey('ArticleKind', null=True, blank=True, default=None, on_delete=models.SET_DEFAULT,
                              verbose_name="Тип статьи")
-    date_create = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания статьи")
+    date_create = models.DateField(auto_now_add=True, verbose_name="Дата создания статьи")
+    date_publish = models.DateField(verbose_name="Дата публикации статьи")
     title = models.CharField(max_length=250, verbose_name="Заголовок статьи")
     cover = models.FileField(upload_to='images/covers/', blank=True, verbose_name="Обложка статьи")
     content = models.TextField(verbose_name="Содержание (текст) статьи")

@@ -37,7 +37,7 @@
         <div class="row justify-content-center align-left pt-4">
             <div class="col-lg-12 md-pb">
                 <h3 class="mbr-section-subtitle pb-2 mbr-fonts-style display-7">
-                    {{ article.date_create }}</h3>
+                    {{ article.date_publish }}</h3>
                 <h2 class="mbr-section-title mbr-bold pb-1 mbr-fonts-style display-1">{{ article.title }}</h2>
 
                 <div class="line-wrap">
@@ -178,7 +178,7 @@
                 {% if prev_article and prev_article is not None %}
                     <a href="/article/{{ prev_article.pk }}" >
                         <span class="mbr-iconfont mbri-left"></span>
-                        <span class="heading mbr-card-title mbr-fonts-style display-5"><small>{{ prev_article.date_create|date:"d.m.Y" }}</small><br>{{ prev_article.title|truncatewords:10 }}</span>
+                        <span class="heading mbr-card-title mbr-fonts-style display-5"><small>{{ prev_article.date_publish|date:"d.m.Y" }}</small><br>{{ prev_article.title|truncatewords:10 }}</span>
                     </a>
                     {% else %}
                         <br><br><h2 class="heading mbr-card-title mbr-fonts-style display-5 text-secondary">Нет более ранних статей</h2>
@@ -189,7 +189,7 @@
                 {% if next_article and next_article is not None %}
                     <a href="/article/{{ next_article.pk }}" >
                         <span class="mbr-iconfont mbri-right"></span>
-                        <span class="heading mbr-card-title mbr-fonts-style display-5"><small>{{ next_article.date_create|date:"d.m.Y" }}</small><br>{{ next_article.title|truncatewords:10 }}</span>
+                        <span class="heading mbr-card-title mbr-fonts-style display-5"><small>{{ next_article.date_publish|date:"d.m.Y" }}</small><br>{{ next_article.title|truncatewords:10 }}</span>
                     </a>
                     {% else %}
                         <br><br><h2 class="heading mbr-card-title mbr-fonts-style display-5 text-secondary">Нет более новых статей</h2>

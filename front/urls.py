@@ -16,5 +16,6 @@ urlpatterns = [
     re_path('^lenta/', views.Lenta.as_view()),
     path('article/<int:article_id>', views.Article.as_view()),
     path('policy/', views.Policy.as_view()),
+    path('login/', views.Login.as_view()),
 
 ]

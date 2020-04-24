@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html  >
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="../../static/assets/images/-mini-250x128.png" type="image/x-icon">
+  {% include "meta.html" %}
+
+  <title>Вход</title>
+  <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="../../static/assets/theme/css/style.css">
+  <link rel="preload" as="style" href="../../static/assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="../../static/assets/mobirise/css/mbr-additional.css" type="text/css">
+
+</head>
+<body>
+<div class="row justify-content-center" style="margin-top: 12em">
+        <div class="card col-4 px-0 border" style="max-width: 330px; min-width: 330px">
+            <div class="card-header">
+                <img id="logoImg" src="../../static/assets/images/-mini-250x128.png" height="40px" alt="">
+            </div>
+            {% block form %}
+                <form method="post">
+                {% csrf_token %}
+                        <div class="card-body">
+                            <div class="row align-items-center px-2 my-2">
+                                <div class="col-12 mx-auto input-group">
+                                    {{ form.login }}
+                                </div>
+                            </div>
+                            <div class="row mt-4 mb-2 align-items-center px-2">
+                                <div class="col-12 mx-auto input-group">
+                                        {{ form.pwd }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="col-12 pl-0">
+                                <button type="submit" class="btn btn-primary btn-block btn-sm">Войти</button>
+                            </div>
+                             <div class="col-12 pl-0">
+                                <a href="/" class="btn btn-secondary btn-block btn-sm">Назад</a>
+                            </div>
+                        </div>
+                </form>
+            {% endblock %}
+        </div>
+    </div>
+  <script src="../../static/assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="../../static/assets/popper/popper.min.js"></script>
+  <script src="../../static/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../static/assets/bootstrapcarouselswipe/bootstrap-carousel-swipe.js"></script>
+</body>
+</html>

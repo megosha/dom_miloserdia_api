@@ -1,11 +1,13 @@
+from django.contrib.auth import authenticate, login, logout
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.utils import timezone
 from django.views import View
+from django.contrib.auth.models import User
 
 # Create your views here.
-from front import models
-
+from front import models, forms
 
 def make_context(**kwargs):
     try:
@@ -26,9 +28,9 @@ class Index(View):
         # для блоков -Наши партнеры-
         partners = models.Partner.objects.filter(important=False)
         # для блоков Новостей
-        articles = models.Article.objects.filter(kind__pk=3).order_by("-date_create")[:3]
-        news_rus = models.Article.objects.filter(kind__pk=2).order_by("-date_create")[:3]
-        news_world = models.Article.objects.filter(kind__pk=1).order_by("-date_create")[:3]
+        articles = models.Article.objects.filter(kind__pk=3, date_publish__lte=timezone.now()).order_by("-date_publish")[:3]
+        news_rus = models.Article.objects.filter(kind__pk=2, date_publish__lte=timezone.now()).order_by("-date_publish")[:3]
+        news_world = models.Article.objects.filter(kind__pk=1, date_publish__lte=timezone.now()).order_by("-date_publish")[:3]
         context = make_context(important_partners=important_partners,
                                partners=partners,
                                articles=articles,
@@ -81,7 +83,7 @@ class Lenta(View):
             kind = 2
         else:
             kind = 3
-        articles = models.Article.objects.filter(kind__pk=kind).order_by("-date_create")
+        articles = models.Article.objects.filter(kind__pk=kind, date_publish__lte=timezone.now()).order_by("-date_publish")
         paginator = Paginator(articles, 10)  # 10 posts in each page
         page = request.GET.get('page')
         try:
@@ -103,13 +105,13 @@ class Lenta(View):
 """ СТАТЬЯ """
 class Article(View):
     def get(self, request, article_id):
-        article = models.Article.objects.filter(pk=article_id).first()
+        article = models.Article.objects.filter(pk=article_id, date_publish__lte=timezone.now()).first()
         if not article:
             return HttpResponseRedirect('/')
         photos = models.Photo.objects.filter(article__pk=article_id)
         prev_page = request.session.pop('prev_lenta') if 'prev_lenta' in request.session else ''
-        next_article = models.Article.objects.filter(pk__gt=article.pk, kind__pk=article.kind.pk).order_by('pk').first()
-        prev_article = models.Article.objects.filter(pk__lt=article.pk, kind__pk=article.kind.pk).order_by('pk').last()
+        next_article = models.Article.objects.filter(date_publish__gt=article.date_publish, date_publish__lte=timezone.now(), kind__pk=article.kind.pk).order_by('date_publish').first()
+        prev_article = models.Article.objects.filter(date_publish__lt=article.date_publish, date_publish__lte=timezone.now(), kind__pk=article.kind.pk).order_by('date_publish').last()
         context = make_context(article=article,
                                photos=photos,
                                prev_page=prev_page,
@@ -133,4 +135,37 @@ class Policy(View):
     def get(self, request):
         context = make_context()
         return render(request, 'includes/policy.html', context)
+
+class Login(View):
+    def dispatch(self, request, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            return HttpResponseRedirect('/admin_domm')
+        else:
+            return super(Login, self).dispatch(request)
+
+    def get(self, request):
+        form = forms.Login()
+        context = make_context(form=form)
+        return render(request, 'includes/login.html', context)
+
+    def post(self, request):
+        form = forms.Login(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['login']
+            pwd = form.cleaned_data['pwd']
+            try:
+                user = authenticate(username=username, password=pwd)
+            except Exception as e:
+                print(e)
+                return self.get(request)
+            login(self.request, user)
+            print(user)
+            return HttpResponseRedirect('/admin_domm')
+        return HttpResponseRedirect('/')
+
+class Logout(View):
+    def dispatch(self, request, *args, **kwargs):
+        if self.request.user.is_authenticated:
+            logout(self.request)
+        return HttpResponseRedirect('/')
 

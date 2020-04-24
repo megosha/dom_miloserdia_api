@@ -12,6 +12,7 @@ class ShowAdminForm(forms.ModelForm):
         fields = (
             "kind",
             "title",
+            "date_publish",
             "cover",
             "content",
             # "video",
@@ -35,3 +36,14 @@ class ShowAdminForm(forms.ModelForm):
         for upload in self.files.getlist("photos"):
             photo = Photo(article=article, photo=upload)
             photo.save()
+
+class Login(forms.Form):
+    login = forms.CharField(label="Имя пользователя", max_length=100,
+                               widget=forms.TextInput(attrs={'placeholder': 'Логин'}))
+    pwd = forms.CharField(label="Пароль", max_length=64,
+                               widget=forms.PasswordInput(attrs={'type':"password", 'placeholder': 'Пароль'}))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({"class": "form-control"})

@@ -17,9 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
+from front.views import Logout
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+    path('admin_domm/logout/', Logout.as_view()),
+    path('admin_domm/', admin.site.urls),
     path('api/', include('api.urls')),
     path('', include('front.urls')),
 ]

@@ -64,8 +64,6 @@ class Partner(models.Model):
     def __str__(self):
         return f'{self.title}'
 
-    def __unicode__(self):
-        return u'%s' % (self.title)
 
 class Report(models.Model):
     period = models.CharField(max_length=100, verbose_name="Период/год")

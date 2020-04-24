@@ -40,14 +40,14 @@
             <div class="col-lg-8">
 
                 <p class="mbr-text pb-2 align-left mbr-fonts-style display-4">{{ partner.description }}
-<br>Сферы деятельности:
+<br><strong>Сферы деятельности:</strong>
 <br>{{ partner.activity }}</p>
             </div>
 
             <div class="col-lg-4">
 
 
-                <p class="items items-col align-left mbr-fonts-style display-4"><strong>Адрес:</strong> &nbsp;{{ partner.address }}<br><strong>Контакты:</strong>&nbsp;
+                <p class="items items-col align-left mbr-fonts-style display-4">{% if partner.address %}<strong>Адрес:</strong> &nbsp;{{ partner.address }}<br>{% endif %}<strong>Контакты:</strong>&nbsp;
                             {% for p in partner.phones %}
                                 <a href="tel:{{ p }}">{{ p }}</a><br>
                                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;

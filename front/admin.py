@@ -61,7 +61,7 @@ class PartnerAdmin(admin.ModelAdmin, DynamicArrayMixin):
     icon_tag.allow_tags = True
     readonly_fields = ['icon_tag']
 
-    list_display = ['pk', 'title', 'icon_tag', 'important', 'site', 'email', 'address', 'description', 'activity']
+    list_display = ['pk', 'title', 'icon_tag', 'important', 'site', 'email', 'address']
     search_fields = ['title', 'email', 'description', 'activity']
     list_display_links = ['title']
     list_filter = ['important',]

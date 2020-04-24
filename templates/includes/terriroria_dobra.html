@@ -54,7 +54,7 @@
                 
             </div>
             <div class="col-lg-6 m-auto align-center md-pb">
-                <img class="photo" src="../../static/assets/images/whatsapp-image-2017-07-07-at-10.26.51-224x300.jpg" alt="" title="">
+                <img class="photo" src="../../static/assets/images/whatsapp-image-2017-07-07-at-10.26.51-224x300.jpg" alt="" title="" height="400" style="width:unset">
             </div>
         </div>
     </div>
@@ -64,32 +64,23 @@
     <div class="mbr-wowslider">
         <div class="ws_images">
             <ul>
+                {% for ph in photos %}
                 <li>
-                    
-                    <img src="../../static/assets/images/slide3.jpg" alt="title 1" title="title 1"> text 1
-                </li><li>
-                    
-                    <img src="../../static/assets/images/slide2.jpg" alt="title 2" title="title 2"> text 2
-                </li><li>
-                    
-                    <img src="../../static/assets/images/slide1.jpg" alt="title 3" title="title 3"> text 3
+                    <img src="../../static/assets/images/terr_dobra/{{ ph }}" alt="" title="">
                 </li>
+                {% endfor %}
             </ul>
         </div>
         <div class="ws_bullets">
             <div>
                 <a href="#" title="">
                     <span><img alt="slide1" src="../../static/assets/images/tooltip3.jpg"></span>
-                </a><a href="#" title="">
-                    <span><img alt="slide1" src="../../static/assets/images/tooltip2.jpg"></span>
-                </a><a href="#" title="">
-                    <span><img alt="slide1" src="../../static/assets/images/tooltip1.jpg"></span>
                 </a>
             </div>
         </div>
         <div class="ws_shadow"></div>
         <div class="mbr-wowslider-options">
-            <div class="params" data-paddingbottom="0" data-anim-type="kenburns" data-theme="boundary" data-autoplay="true" data-paddingtop="0" data-fullscreen="true" data-showbullets="true" data-timeout="2" data-duration="2" data-height="576" data-width="1024" data-responsive="1" data-showcaptions="false" data-captionseffect="slide" data-hidecontrols="false"></div>
+            <div class="params" data-paddingbottom="2" data-anim-type="kenburns" data-theme="boundary" data-autoplay="true" data-paddingtop="0" data-fullscreen="true" data-showbullets="false" data-timeout="2" data-duration="2" data-height="600" data-width="600" data-responsive="1" data-showcaptions="false" data-captionseffect="slide" data-hidecontrols="true"></div>
         </div>
 </div></section>
 

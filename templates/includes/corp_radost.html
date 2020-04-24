@@ -77,37 +77,79 @@
     <div class="mbr-wowslider">
         <div class="ws_images">
             <ul>
+                {% for ph1 in photos1 %}
                 <li>
-                    
-                    <img src="../../static/assets/images/slide3-1024x576.jpg" alt="title 1" title="title 1"> text 1
-                </li><li>
-                    
-                    <img src="../../static/assets/images/slide2-1-1024x576.jpg" alt="title 2" title="title 2"> text 2
-                </li><li>
-                    
-                    <img src="../../static/assets/images/slide1-1024x576.jpg" alt="title 3" title="title 3"> text 3
-                </li><li>
-                    
-                    <img src="../../static/assets/images/img-604-1024x576.jpg" alt="title 3" title="title 3"> text 3
+
+                    <img src="../../static/assets/images/corp_radost/1/{{ ph1 }}" alt="" title="">
                 </li>
+
+                {% endfor %}
             </ul>
         </div>
         <div class="ws_bullets">
             <div>
                 <a href="#" title="">
                     <span><img alt="slide1" src="../../static/assets/images/tooltip3.jpg"></span>
-                </a><a href="#" title="">
-                    <span><img alt="slide1" src="../../static/assets/images/tooltip2.jpg"></span>
-                </a><a href="#" title="">
-                    <span><img alt="slide1" src="../../static/assets/images/tooltip1.jpg"></span>
-                </a><a href="#" title="">
-                    <span><img alt="slide1" src="../../static/assets/images/img-604-85x48.png"></span>
                 </a>
             </div>
         </div>
         <div class="ws_shadow"></div>
         <div class="mbr-wowslider-options">
-            <div class="params" data-paddingbottom="1" data-anim-type="kenburns" data-theme="boundary" data-autoplay="true" data-paddingtop="1" data-fullscreen="true" data-showbullets="true" data-timeout="2" data-duration="2" data-height="576" data-width="1024" data-responsive="1" data-showcaptions="false" data-captionseffect="slide" data-hidecontrols="false"></div>
+            <div class="params" data-paddingbottom="1" data-anim-type="kenburns" data-theme="boundary" data-autoplay="true" data-paddingtop="1" data-fullscreen="true" data-showbullets="false" data-timeout="2" data-duration="2" data-height="600" data-width="600" data-responsive="1" data-showcaptions="false" data-captionseffect="slide" data-hidecontrols="true"></div>
+        </div>
+</div></section>
+
+<section class="mbr-wowslider-container mbr-section mbr-section__container carousel slide mbr-section-nopadding mbr-wowslider-container--boundary" data-ride="carousel" data-keyboard="false" data-wrap="true" data-interval="false" id="wowslider-14" data-rv-view="269" style="background-color: rgb(255, 255, 255);">
+    <div class="mbr-wowslider">
+        <div class="ws_images">
+            <ul>
+                {% for ph2 in photos2 %}
+                <li>
+
+                    <img src="../../static/assets/images/corp_radost/2/{{ ph2 }}" alt="" title="">
+                </li>
+
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div class="ws_bullets">
+            <div>
+                <a href="#" title="">
+                    <span><img alt="slide1" src="../../static/assets/images/tooltip3.jpg"></span>
+                </a>
+            </div>
+        </div>
+        <div class="ws_shadow"></div>
+        <div class="mbr-wowslider-options">
+            <div class="params" data-paddingbottom="1" data-anim-type="kenburns" data-theme="boundary" data-autoplay="true" data-paddingtop="1" data-fullscreen="true" data-showbullets="false" data-timeout="2" data-duration="2" data-height="600" data-width="600" data-responsive="1" data-showcaptions="false" data-captionseffect="slide" data-hidecontrols="true"></div>
+        </div>
+</div></section>
+
+<section class="mbr-wowslider-container mbr-section mbr-section__container carousel slide mbr-section-nopadding mbr-wowslider-container--boundary" data-ride="carousel" data-keyboard="false" data-wrap="true" data-interval="false" id="wowslider-14" data-rv-view="269" style="background-color: rgb(255, 255, 255);">
+    <div class="mbr-wowslider">
+        <div class="ws_images">
+            <ul>
+                {% for ph3 in photos3 %}
+                <li>
+
+                    <img src="../../static/assets/images/corp_radost/3/{{ ph3 }}" alt="" title="">
+                </li>
+
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div class="ws_bullets">
+            <div>
+                <a href="#" title="">
+                    <span><img alt="slide1" src="../../static/assets/images/tooltip3.jpg"></span>
+                </a>
+            </div>
+        </div>
+        <div class="ws_shadow"></div>
+        <div class="mbr-wowslider-options">
+            <div class="params" data-paddingbottom="1" data-anim-type="kenburns" data-theme="boundary" data-autoplay="true" data-paddingtop="1" data-fullscreen="true" data-showbullets="false" data-timeout="2" data-duration="2" data-height="600" data-width="600" data-responsive="1" data-showcaptions="false" data-captionseffect="slide" data-hidecontrols="true"></div>
         </div>
 </div></section>
 {% include "footer.html" %}

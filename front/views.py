@@ -1,3 +1,5 @@
+import os
+
 from django.contrib.auth import authenticate, login, logout
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponseRedirect
@@ -5,17 +7,18 @@ from django.shortcuts import render
 from django.utils import timezone
 from django.views import View
 from django.contrib.auth.models import User
+from django.conf import settings
 
 # Create your views here.
 from front import models, forms
 
 def make_context(**kwargs):
     try:
-        settings = models.Settings.objects.get()
+        sett = models.Settings.objects.get()
     except:
         context = {}
     else:
-        context = {'settings':settings}
+        context = {'settings':sett}
     if kwargs:
         for k, v in kwargs.items():
             context[f'{k}'] = v
@@ -42,7 +45,13 @@ class Index(View):
 """  ПРОЕКТЫ  """
 class CorpRadost(View):
     def get(self, request):
-        context = make_context()
+        BASE_DIR = settings.BASE_DIR
+        photos1 = os.listdir(os.path.join(BASE_DIR, 'static', 'assets', 'images', 'corp_radost', '1'))
+        photos2 = os.listdir(os.path.join(BASE_DIR, 'static', 'assets', 'images', 'corp_radost', '2'))
+        photos3 = os.listdir(os.path.join(BASE_DIR, 'static', 'assets', 'images', 'corp_radost', '3'))
+        context = make_context(photos1=photos1,
+                               photos2=photos2,
+                               photos3=photos3)
         return render(request, 'includes/corp_radost.html', context)
 
 class DenMiloserdia(View):
@@ -52,7 +61,9 @@ class DenMiloserdia(View):
 
 class TerritoriaDobra(View):
     def get(self, request):
-        context = make_context()
+        BASE_DIR = settings.BASE_DIR
+        photos = os.listdir(os.path.join(BASE_DIR, 'static', 'assets', 'images', 'terr_dobra'))
+        context = make_context(photos=photos)
         return render(request, 'includes/terriroria_dobra.html', context)
 
 

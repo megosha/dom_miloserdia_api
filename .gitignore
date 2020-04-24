@@ -3,3 +3,4 @@
 secret*
 .env
 /api/migrations/
+/static/assets/formoid.min.js

@@ -2,7 +2,6 @@ from datetime import datetime
 
 from django.db import models
 # from django.contrib.postgres.fields import ArrayField
-from django.utils import timezone
 from django_better_admin_arrayfield.models.fields import ArrayField
 
 
@@ -64,6 +63,9 @@ class Partner(models.Model):
 
     def __str__(self):
         return f'{self.title}'
+
+    def __unicode__(self):
+        return u'%s' % (self.title)
 
 class Report(models.Model):
     period = models.CharField(max_length=100, verbose_name="Период/год")

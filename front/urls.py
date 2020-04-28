@@ -3,7 +3,6 @@ from django.urls import re_path, path
 from front import views
 
 urlpatterns = [
-    # re_path(r'^', views.NotFound.as_view()),
     path('', views.Index.as_view()),
     path('corp_radost/', views.CorpRadost.as_view()),
     path('den_miloserdia/', views.DenMiloserdia.as_view()),

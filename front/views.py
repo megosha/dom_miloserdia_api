@@ -12,17 +12,19 @@ from django.conf import settings
 # Create your views here.
 from front import models, forms
 
+
 def make_context(**kwargs):
     try:
         sett = models.Settings.objects.get()
     except:
         context = {}
     else:
-        context = {'settings':sett}
+        context = {'settings': sett}
     if kwargs:
         for k, v in kwargs.items():
             context[f'{k}'] = v
     return context
+
 
 class Index(View):
     def get(self, request):
@@ -31,18 +33,23 @@ class Index(View):
         # для блоков -Наши партнеры-
         partners = models.Partner.objects.filter(important=False)
         # для блоков Новостей
-        articles = models.Article.objects.filter(kind__pk=3, date_publish__lte=timezone.now()).order_by("-date_publish")[:3]
-        news_rus = models.Article.objects.filter(kind__pk=2, date_publish__lte=timezone.now()).order_by("-date_publish")[:3]
-        news_world = models.Article.objects.filter(kind__pk=1, date_publish__lte=timezone.now()).order_by("-date_publish")[:3]
+        articles = models.Article.objects.filter(kind__pk=3, date_publish__lte=timezone.now()).order_by(
+            "-date_publish")[:3]
+        news_rus = models.Article.objects.filter(kind__pk=2, date_publish__lte=timezone.now()).order_by(
+            "-date_publish")[:3]
+        news_world = models.Article.objects.filter(kind__pk=1, date_publish__lte=timezone.now()).order_by(
+            "-date_publish")[:3]
         context = make_context(important_partners=important_partners,
                                partners=partners,
                                articles=articles,
                                news_rus=news_rus,
-                               news_world=news_world,)
+                               news_world=news_world, )
         return render(request, 'includes/index.html', context)
 
 
 """  ПРОЕКТЫ  """
+
+
 class CorpRadost(View):
     def get(self, request):
         BASE_DIR = settings.BASE_DIR
@@ -54,10 +61,12 @@ class CorpRadost(View):
                                photos3=photos3)
         return render(request, 'includes/corp_radost.html', context)
 
+
 class DenMiloserdia(View):
     def get(self, request):
         context = make_context()
         return render(request, 'includes/den_miloserdia.html', context)
+
 
 class TerritoriaDobra(View):
     def get(self, request):
@@ -68,10 +77,13 @@ class TerritoriaDobra(View):
 
 
 """  ИНФОРМАЦИЯ  """
+
+
 class Blagodarnost(View):
     def get(self, request):
         context = make_context()
         return render(request, 'includes/blagodarnost.html', context)
+
 
 class Otchet(View):
     def get(self, request):
@@ -79,13 +91,19 @@ class Otchet(View):
         context = make_context(reports=reports)
         return render(request, 'includes/otchetnost.html', context)
 
+
 """  РЕАБИЛИТАЦИЯ  """
+
+
 class Rehabilitation(View):
     def get(self, request):
         context = make_context()
         return render(request, 'includes/reabilitacia.html', context)
 
+
 """ ЛЕНТА """
+
+
 class Lenta(View):
     def get(self, request):
         if 'world' in request.path:
@@ -94,7 +112,8 @@ class Lenta(View):
             kind = 2
         else:
             kind = 3
-        articles = models.Article.objects.filter(kind__pk=kind, date_publish__lte=timezone.now()).order_by("-date_publish")
+        articles = models.Article.objects.filter(kind__pk=kind, date_publish__lte=timezone.now()).order_by(
+            "-date_publish")
         paginator = Paginator(articles, 10)  # 10 posts in each page
         page = request.GET.get('page')
         try:
@@ -114,6 +133,8 @@ class Lenta(View):
 
 
 """ СТАТЬЯ """
+
+
 class Article(View):
     def get(self, request, article_id):
         article = models.Article.objects.filter(pk=article_id, date_publish__lte=timezone.now()).first()
@@ -121,8 +142,12 @@ class Article(View):
             return HttpResponseRedirect('/')
         photos = models.Photo.objects.filter(article__pk=article_id)
         prev_page = request.session.pop('prev_lenta') if 'prev_lenta' in request.session else ''
-        next_article = models.Article.objects.filter(date_publish__gt=article.date_publish, date_publish__lte=timezone.now(), kind__pk=article.kind.pk).order_by('date_publish').first()
-        prev_article = models.Article.objects.filter(date_publish__lt=article.date_publish, date_publish__lte=timezone.now(), kind__pk=article.kind.pk).order_by('date_publish').last()
+        next_article = models.Article.objects.filter(date_publish__gt=article.date_publish,
+                                                     date_publish__lte=timezone.now(),
+                                                     kind__pk=article.kind.pk).order_by('date_publish').first()
+        prev_article = models.Article.objects.filter(date_publish__lt=article.date_publish,
+                                                     date_publish__lte=timezone.now(),
+                                                     kind__pk=article.kind.pk).order_by('date_publish').last()
         context = make_context(article=article,
                                photos=photos,
                                prev_page=prev_page,
@@ -130,7 +155,10 @@ class Article(View):
                                prev_article=prev_article)
         return render(request, 'includes/article.html', context)
 
+
 """  Партнер  """
+
+
 class Partner(View):
     def get(self, request, partner_id):
         partner = models.Partner.objects.filter(pk=partner_id).first()
@@ -141,11 +169,15 @@ class Partner(View):
         context = make_context(partner=partner)
         return render(request, 'includes/partner.html', context)
 
+
 """  Политика безопасности  """
+
+
 class Policy(View):
     def get(self, request):
         context = make_context()
         return render(request, 'includes/policy.html', context)
+
 
 class Login(View):
     def dispatch(self, request, *args, **kwargs):
@@ -174,9 +206,9 @@ class Login(View):
             return HttpResponseRedirect('/admin_domm')
         return HttpResponseRedirect('/')
 
+
 class Logout(View):
     def dispatch(self, request, *args, **kwargs):
         if self.request.user.is_authenticated:
             logout(self.request)
         return HttpResponseRedirect('/')
-

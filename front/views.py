@@ -213,3 +213,14 @@ class Logout(View):
         if self.request.user.is_authenticated:
             logout(self.request)
         return HttpResponseRedirect('/')
+
+# class NotFound(View):
+#     def dispatch(self, request, *args, **kwargs):
+#         from front import urls
+#         path = request.path
+#         for i in urls.urlpatterns:
+#             url = f'/{i.pattern}'
+#             if path ==  url or path ==  f'/^{i.pattern}':
+#                 return HttpResponseRedirect(request.path)
+#         # str(urls.urlpatterns[1].pattern)
+#         return HttpResponseRedirect('/')

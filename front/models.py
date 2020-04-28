@@ -29,7 +29,7 @@ class Article(models.Model):
     videocover = models.FileField(upload_to='images/covers/', blank=True, verbose_name="Обложка видео")
 
     class Meta:
-        ordering = ["-date_create"]
+        ordering = ["-date_publish"]
         verbose_name = "Статья"
         verbose_name_plural = "Статьи"
 

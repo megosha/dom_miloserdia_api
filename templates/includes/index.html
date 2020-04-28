@@ -82,7 +82,6 @@
             </div>
             {% for ip in important_partners %}
                 <div class="col-lg-1 col-md-3 card">
-{#                    <a href="/partner/{{ ip.pk }}" target="_blank"><img src="{{ ip.logo.url }}" title="{{ ip.title }}" alt="{{ ip.title }}"></a>#}
                     <a href="/partner/{{ ip.pk }}" target="_blank" title="{{ ip.title }}" class="text-center">{% if ip.logo %}<img src="{{ ip.logo.url }}" alt="" title="">{% else %}{{ ip.title }}{% endif %}</a>
 
                 </div>

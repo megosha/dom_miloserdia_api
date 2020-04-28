@@ -148,7 +148,8 @@ class Article(View):
         prev_article = models.Article.objects.filter(date_publish__lt=article.date_publish,
                                                      date_publish__lte=timezone.now(),
                                                      kind__pk=article.kind.pk).order_by('date_publish').last()
-        context = make_context(article=article,
+        context = make_context(title=article.title,
+                               article=article,
                                photos=photos,
                                prev_page=prev_page,
                                next_article=next_article,

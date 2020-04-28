@@ -19,6 +19,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from front.views import Logout
 
+handler404 = 'front.views.notfound'
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('admin_domm/logout/', Logout.as_view()),

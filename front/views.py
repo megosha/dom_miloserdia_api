@@ -3,7 +3,7 @@ import os
 from django.contrib.auth import authenticate, login, logout
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.views import View
 from django.contrib.auth.models import User
@@ -213,3 +213,6 @@ class Logout(View):
         if self.request.user.is_authenticated:
             logout(self.request)
         return HttpResponseRedirect('/')
+
+def notfound(request, exception=None):
+    return redirect('/')

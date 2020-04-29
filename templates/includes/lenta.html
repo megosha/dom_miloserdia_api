@@ -45,7 +45,7 @@
 
                 <div class="card-wrapper">
                     <div class="card-img">
-                        <img class="" src="{{ article.cover.url }}" title="" alt="">
+                        <img class="" src="{% if article.cover %}{{ article.cover.url }}{% else %}{{ settings.default_cover.url }}{% endif %}" title="" alt="">
                         <div class="card-box">
 
 

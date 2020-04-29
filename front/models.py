@@ -2,6 +2,7 @@ from datetime import datetime
 
 from django.db import models
 # from django.contrib.postgres.fields import ArrayField
+from django.contrib.postgres.fields import JSONField
 from django_better_admin_arrayfield.models.fields import ArrayField
 
 
@@ -11,7 +12,7 @@ class ArticleKind(models.Model):
 
     class Meta:
         verbose_name = "Тип статьи"
-        verbose_name_plural = "Типы статей"
+        verbose_name_plural = "3 - Типы статей"
 
     def __str__(self):
         return self.kind
@@ -20,6 +21,8 @@ class ArticleKind(models.Model):
 class Article(models.Model):
     kind = models.ForeignKey('ArticleKind', null=True, blank=True, default=None, on_delete=models.SET_DEFAULT,
                              verbose_name="Тип статьи")
+    instagram_id = models.CharField(max_length=100, default=None, blank=True, null=True,
+                                    verbose_name="id статьи в instagram")
     date_create = models.DateField(auto_now_add=True, verbose_name="Дата создания статьи")
     date_publish = models.DateTimeField(verbose_name="Дата публикации статьи")
     title = models.CharField(max_length=250, verbose_name="Заголовок статьи")
@@ -31,7 +34,7 @@ class Article(models.Model):
     class Meta:
         ordering = ["-date_publish"]
         verbose_name = "Статья"
-        verbose_name_plural = "Статьи"
+        verbose_name_plural = "2 - Статьи"
 
     def __str__(self):
         return f'{self.kind} -  {self.title} - {self.date_create}'
@@ -59,7 +62,7 @@ class Partner(models.Model):
     class Meta:
         ordering = ["title"]
         verbose_name = "Партнёр"
-        verbose_name_plural = "Партнёры"
+        verbose_name_plural = "1 - Партнёры"
 
     def __str__(self):
         return f'{self.title}'
@@ -72,20 +75,24 @@ class Report(models.Model):
 
     class Meta:
         verbose_name = "Отчёт"
-        verbose_name_plural = "Отчеты"
+        verbose_name_plural = "4 - Отчеты"
 
     def __str__(self):
         return f'{self.title}'
 
 class Settings(models.Model):
-    # mailto = models.EmailField(verbose_name="Почта, для уведомлений обратной связи")
+    instagram_id = models.CharField(max_length=20, default='', blank=True, null=True, verbose_name="User id аккаунта в instagram")
+    rapidapi_url = models.URLField(default='', blank=True, null=True, verbose_name="Адрес запроса к rapidapi")
+    rapidapi_header = JSONField(default=dict, blank=True, verbose_name="Заголовок запроса к rapidapi")
     mailto = ArrayField(models.EmailField(), verbose_name="Почта, для уведомлений обратной связи")
     metadescr = models.TextField(default='', blank=True, null=True, verbose_name="Meta Description")
     metakeywords = models.TextField(default='', blank=True, null=True, verbose_name="Meta Keyword")
+    default_cover = models.ImageField(upload_to='images/covers/', blank=True, verbose_name="Обложка статьи по умолчанию")
+    default_videocover = models.ImageField(upload_to='images/covers/', blank=True, verbose_name="Обложка видео по умолчанию")
 
     class Meta:
         verbose_name = "Настройки"
-        verbose_name_plural = "Настройки"
+        verbose_name_plural = "5 - Настройки"
 
     def __str__(self):
         return f'{self.mailto}'

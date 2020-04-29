@@ -11,6 +11,7 @@ class ShowAdminForm(forms.ModelForm):
         model = Article
         fields = (
             "kind",
+            "instagram_id",
             "title",
             "date_publish",
             "cover",

@@ -73,8 +73,8 @@ class ReportAdmin(admin.ModelAdmin):
     list_display_links = ['period']
 
 class SettingsAdmin(admin.ModelAdmin, DynamicArrayMixin):
-    list_display = ['mailto']
-    list_display_links = ['mailto']
+    list_display = ['instagram_id', 'mailto']
+    list_display_links = ['instagram_id']
 
 
 admin.site.register(models.ArticleKind, ArticleKindAdmin)

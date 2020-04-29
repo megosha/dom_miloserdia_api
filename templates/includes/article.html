@@ -62,12 +62,14 @@
             <ul>
 
                 {% for ph in photos %}
+                    {% if ph.photo %}
                     <li>
 {#                        <img src="{{ ph.photo|thumbnail_url:'slider' }}" alt="" title="" width="1024px" height="576px">#}
 {#                        <img src="{{ ph.photo|thumbnail_url:'slider' }}" alt="" title="">#}
                         <img src="{{ ph.photo.url }}" alt="" title="">
 {#                        <img src="../../static/assets/images/slide3.jpg" alt="" title="">#}
                     </li>
+                    {% endif %}
                 {% endfor %}
             </ul>
         </div>
@@ -75,9 +77,11 @@
             <div>
 
                 {% for ph in photos %}
+                    {% if ph.photo %}
                         <a href="#" title="">
                     <span><img alt="" src="{{ ph.photo.url }}" height="48px" width="85"></span>
                 </a>
+                    {% endif %}
                 {% endfor %}
 
             </div>
@@ -133,7 +137,7 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="mbr-white box col-md-12 col-12 col-lg-10" style="background-image: url('{% if article.videocover %}{{ article.videocover.url }}{% else %}{{ article.cover.url }}{% endif %}');">
+            <div class="mbr-white box col-md-12 col-12 col-lg-10" style="background-image: url('{% if article.videocover %}{{ article.videocover.url }}{% else %}{{ settings.default_videocover.url }}{% endif %}');">
                 <div class="mbr-media show-modal align-center py-2" data-modal=".modalWindow">
                     <div class="icon-wrap">
                         <span class="mbr-iconfont mobi-mbri-play mobi-mbri"></span>

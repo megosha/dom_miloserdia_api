@@ -114,7 +114,7 @@
                     <div class="card-img">
                         <h3 class="mbr-section-subtitle pb-1 mbr-fonts-style display-7">📅
                     {{ a.date_publish|date:"j M Y" }}</h3>
-                        <img class="custom" src="{{ a.cover.url }}" alt="">
+                        <img class="custom" src="{% if a.cover %}{{ a.cover.url }}{% else %}{{ settings.default_cover.url }}{% endif %}" alt="">
                     </div>
                     <div class="card-box">
                         <p class="mbr-text mbr-fonts-style align-center display-7">
@@ -255,7 +255,7 @@
                                     <div class="mbr-section-btn"><a class="btn-underline mr-3 text-primary display-4" href="/article/{{ nr.pk }}">Читать дальше</a></div>
                                 </div>
                                 <div class="col-lg-6">
-                                    <div class="card-img"><img class="custom" src="{{ nr.cover.url }}" alt=""></div>
+                                    <div class="card-img"><img class="custom" src="{% if nr.cover %}{{ nr.cover.url }}{% else %}{{ settings.default_cover.url }}{% endif %}" alt=""></div>
                                 </div>
                             </div>
                         </div>
@@ -303,7 +303,7 @@
                                 <div class="mbr-section-btn"><a class="btn-underline mr-3 text-primary display-4" href="/article/{{ nw.pk }}">Читать дальше</a></div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="card-img"><img class="custom" src="{{ nw.cover.url }}" alt=""></div>
+                                <div class="card-img"><img class="custom" src="{% if nw.cover %}{{ nw.cover.url }}{% else %}{{ settings.default_cover.url }}{% endif %}" alt=""></div>
                             </div>
                         </div>
                     </div>

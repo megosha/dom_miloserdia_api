@@ -217,14 +217,3 @@ class Logout(View):
 def notfound(request, exception=None):
     return redirect('/')
 
-"""
-<link rel="canonical" href="https://www.instagram.com/p/B6nD_plp6dn/" />
-    <meta content="4 Likes, 0 Comments - @diceshard on Instagram: “Холодно.”" name="description" />
-    <meta property="og:site_name" content="Instagram" />
-    <meta property="og:title" content="@diceshard on Instagram: “Холодно.”" />
-    <meta property="og:image" content="https://scontent-hel2-1.cdninstagram.com/v/t51.2885-15/e35/79329757_172561344143744_4830672620745308293_n.jpg?_nc_ht=scontent-hel2-1.cdninstagram.com&_nc_cat=108&_nc_ohc=0X0tLkwYpKIAX_IaMhf&oh=2dd3a0a50e8a7d2d4223145769d018cc&oe=5ED29F9B" />
-    <meta property="og:description" content="4 Likes, 0 Comments - @diceshard on Instagram: “Холодно.”" />
-    <meta property="fb:app_id" content="124024574287414" />
-    <meta property="og:url" content="https://www.instagram.com/p/B6nD_plp6dn/" />
-    <meta property="instapp:owner_user_id" content="7417728366" />
-"""

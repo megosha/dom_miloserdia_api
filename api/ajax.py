@@ -35,7 +35,7 @@ class Feedback(View):
         from_email = env('FROM_EMAIL')
         sets = models.Settings.objects.get()
         emails = sets.mailto
-        filename = os.path.join('/tmp', 'dom_miloserdia_rita', 'logs', 'feedback_log.txt')
+        filename = os.path.join('/www', 'dom_miloserdia_api', 'logs', 'feedback_log.txt')
         try:
             send_mail(subject, message, from_email, emails)
         except Exception as e:

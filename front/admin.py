@@ -36,9 +36,9 @@ class ArticleAdmin(admin.ModelAdmin):
     cover_tag.allow_tags = True
     readonly_fields = ['cover_tag', "date_create",]
 
-    list_display = ['title', 'kind', 'date_publish', 'date_create', 'cover_tag']
+    list_display = ['pk', 'title', 'kind', 'date_publish', 'date_create', 'cover_tag']
     search_fields = ['title']
-    list_display_links = ['title']
+    list_display_links = ['pk', 'title', 'date_create']
     list_filter = ['kind', 'date_publish', 'date_create']
     # readonly_fields = ("date_create",)
 

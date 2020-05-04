@@ -27,10 +27,10 @@ def update_lenta():
         for i, post in enumerate(posts):
             post_id = post['node']['id']
             published = datetime.datetime.utcfromtimestamp(post['node']['taken_at_timestamp']).replace(tzinfo=tz)
-            article, new = models.Article.objects.get_or_create(instagram_id=post_id,
-                                                                defaults={'date_publish': published})
             # article, new = models.Article.objects.get_or_create(instagram_id=post_id,
-            #                                                     defaults={'date_publish': published, 'kind':article_kind})
+            #                                                     defaults={'date_publish': published})
+            article, new = models.Article.objects.get_or_create(instagram_id=post_id,
+                                                                defaults={'date_publish': published, 'kind':article_kind})
             if new:
                 if post['node']['edge_media_to_caption']['edges']:
                     text = post['node']['edge_media_to_caption']['edges'][0]['node']['text']
@@ -41,9 +41,9 @@ def update_lenta():
                 # если пост - это одно видео или одна картинка
                 if not 'edge_sidecar_to_children' in post['node']:
                     # если пост - это одно видео
-                    if post['node']['is_video'] == 'True':
-                        video_link = post['node']['video_url']
-                        article.videolink = video_link
+                    # if post['node']['is_video']:
+                    #     video_link = post['node']['video_url']
+                    #     article.videolink = video_link
 
                     fname = f'{post["node"]["id"]}.jpg'
                     cover = os.path.join(settings.MEDIA_ROOT, 'images', 'covers', fname)
@@ -51,8 +51,12 @@ def update_lenta():
                         preview = requests.get(post['node']['display_url'])
                         dest.write(preview.content)
                         # если пост - это одно видео
-                        if post['node']['is_video'] == 'True':
-                            article.videocover.save(fname, dest)
+                        if post['node']['is_video']:
+                            # article.videocover.save(fname, dest)
+                            #todo убрать создание фотографии, добавить парсинг текста
+                            photo = models.Photo.objects.create(article=article)
+                            photo.photo.save(fname, dest)
+                            photo.save()
                         # если пост - это однфа картинка,ее нужно сохранить в слайдер
                         else:
                             photo = models.Photo.objects.create(article=article)
@@ -73,17 +77,17 @@ def update_lenta():
                         element = item['node']
                         fname = f'{element["id"]}.jpg'
                         # если текущий элемент карусели - видео
-                        if element['is_video'] == 'True':
-                            if not video_exists:
-                                article.videolink = element['display_url']
-                                file = os.path.join(settings.MEDIA_ROOT, 'images', 'covers', fname)
-                                with open(file, 'wb+') as dest:
-                                    img = requests.get(element['display_url'])
-                                    dest.write(img.content)
-                                    article.videocover.save(fname, dest)
-                                    video_exists = True
+                        # if element['is_video']:
+                        #     if not video_exists:
+                        #         article.videolink = element['display_url']
+                        #         file = os.path.join(settings.MEDIA_ROOT, 'images', 'covers', fname)
+                        #         with open(file, 'wb+') as dest:
+                        #             img = requests.get(element['display_url'])
+                        #             dest.write(img.content)
+                        #             article.videocover.save(fname, dest)
+                        #             video_exists = True
                         # если текущий элемент карусели - картинка
-                        else:
+                        if not element['is_video']:
                             file = os.path.join(settings.MEDIA_ROOT, 'images', 'articles', fname)
                             with open(file, 'wb+') as dest:
                                 img = requests.get(element['display_url'])

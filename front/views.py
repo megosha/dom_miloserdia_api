@@ -34,7 +34,7 @@ class Index(View):
         partners = models.Partner.objects.filter(important=False)
         # для блоков Новостей
         articles = models.Article.objects.filter(kind__pk=3, date_publish__lte=timezone.now()).order_by(
-            "-date_publish")[:3]
+            "-date_publish")[:6]
         news_rus = models.Article.objects.filter(kind__pk=2, date_publish__lte=timezone.now()).order_by(
             "-date_publish")[:3]
         news_world = models.Article.objects.filter(kind__pk=1, date_publish__lte=timezone.now()).order_by(

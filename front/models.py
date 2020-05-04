@@ -28,7 +28,7 @@ class Article(models.Model):
     title = models.CharField(max_length=250, verbose_name="Заголовок статьи")
     cover = models.FileField(upload_to='images/covers/', blank=True, verbose_name="Обложка статьи")
     content = models.TextField(verbose_name="Содержание (текст) статьи")
-    videolink = models.URLField(null=True, blank=True, verbose_name="Ссылка на видео (одно)")
+    videolink = models.TextField(null=True, blank=True, verbose_name="Ссылка на видео (одно)")
     videocover = models.FileField(upload_to='images/covers/', blank=True, verbose_name="Обложка видео")
 
     class Meta:

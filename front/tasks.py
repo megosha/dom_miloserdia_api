@@ -35,9 +35,12 @@ def update_lenta():
                 if post['node']['edge_media_to_caption']['edges']:
                     text = post['node']['edge_media_to_caption']['edges'][0]['node']['text']
                     title = f"{text.split(' ')[0]} {text.split(' ')[1]} {text.split(' ')[2]} {text.split(' ')[3]}..."
+                    text.replace('Реквизиты', '<a href="/#reqv">Реквизиты</a>').replace('реквизиты', '<a href="/#reqv">реквизиты</a>')
                 else:
                     text = ''
                     title = 'Фотоотчёт'
+
+                text += 'Источник: <a href="https://www.instagram.com/dommi_loserdie/">https://www.instagram.com/dommi_loserdie/</a>'
                 # если пост - это одно видео или одна картинка
                 if not 'edge_sidecar_to_children' in post['node']:
                     # если пост - это одно видео

@@ -151,3 +151,41 @@ CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
 CELERY_RESULT_SERIALIZER = "json"
 CELERY_TASK_RESULT_EXPIRES = 3600
 CELERYD_TASK_TIME_LIMIT = 3600
+
+LOG_PATH = os.path.join(BASE_DIR, "logs")
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'standard': {
+            'format': '%(asctime)s [%(levelname)s] %(message)s'}
+
+    },
+    'handlers': {
+        'django_error': {
+            'level': 'ERROR',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(LOG_PATH, 'django_error.log'),
+            'formatter': 'standard'
+        },
+        'info': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(LOG_PATH, 'django_info.log'),
+            'formatter': 'standard'
+        },
+        'celery': {
+            'level': 'DEBUG',
+            'class': 'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(LOG_PATH, 'celery_info.log'),
+            'formatter': 'standard'
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['info', 'django_error'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}

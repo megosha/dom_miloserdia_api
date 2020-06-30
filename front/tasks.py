@@ -1,4 +1,5 @@
 import datetime
+import sys
 
 import os
 
@@ -12,6 +13,7 @@ from front import models
 from django.utils import timezone
 
 from dom_miloserdia_api.celery import app
+import logging
 
 app.conf.task_default_queue = 'default'
 
@@ -113,6 +115,7 @@ def update_lenta():
                     article.content = text
                     article.save()
     except Exception as error:
+        logging.error(_get_detail_exception_info(error))
         filename = os.path.join('/www', 'dom_miloserdia_api', 'logs', 'import_instaposts_log.txt')
         try:
             with open(filename, 'a', encoding='utf-8') as inp:
@@ -128,3 +131,24 @@ def fix_articles():
         a.content = a.content.replace('Реквизиты', '<a href="#reqv">Реквизиты</a>').replace('реквизиты',
                                                                                             '<a href="#reqv">реквизиты</a>') + '\n\nИсточник: <a href="https://www.instagram.com/dommi_loserdie/">https://www.instagram.com/dommi_loserdie/</a>'
         a.save()
+
+
+def _get_detail_exception_info(exception_object: Exception):
+    """
+    Returns the short occurred exception description.
+    :param exception_object:
+    :return:
+    """
+    type, value, traceback = sys.exc_info()
+    if traceback:
+        # import traceback as tb
+        # tb.print_tb(traceback, file=sys.stdout)
+
+        return '{message} ({code} in {file}: {line})'.format(
+            message=str(exception_object),
+            code=exception_object._class.name_,
+            file=os.path.split(sys.exc_info()[2].tb_frame.f_code.co_filename)[1],
+            line=sys.exc_info()[2].tb_lineno,
+        )
+    else:
+        return f'{str(exception_object)} ({exception_object._class.name_})'

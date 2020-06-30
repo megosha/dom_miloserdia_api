@@ -115,12 +115,12 @@ def update_lenta():
                     article.content = text
                     article.save()
     except Exception as error:
-        logging.error(_get_detail_exception_info(error))
         filename = os.path.join('/www', 'dom_miloserdia_api', 'logs', 'import_instaposts_log.txt')
         try:
             with open(filename, 'a', encoding='utf-8') as inp:
                 inp.write(
                     str(datetime.datetime.now()) + str(error) + "\n")
+            logging.error(_get_detail_exception_info(error))
         except Exception as err:
             print(err)
 

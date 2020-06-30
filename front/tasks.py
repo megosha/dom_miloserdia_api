@@ -11,8 +11,12 @@ from django.conf import settings
 from front import models
 from django.utils import timezone
 
+from dom_miloserdia_api.celery import app
+
+app.conf.task_default_queue = 'default'
 
 
+@app.task(name='front.tasks.update_lenta', ignore_result=True)
 def update_lenta():
     try:
         tz = timezone.get_current_timezone()
@@ -30,17 +34,19 @@ def update_lenta():
             # article, new = models.Article.objects.get_or_create(instagram_id=post_id,
             #                                                     defaults={'date_publish': published})
             article, new = models.Article.objects.get_or_create(instagram_id=post_id,
-                                                                defaults={'date_publish': published, 'kind':article_kind})
+                                                                defaults={'date_publish': published,
+                                                                          'kind': article_kind})
             if new:
                 if post['node']['edge_media_to_caption']['edges']:
                     text = post['node']['edge_media_to_caption']['edges'][0]['node']['text']
                     title = f"{text.split(' ')[0]} {text.split(' ')[1]} {text.split(' ')[2]} {text.split(' ')[3]}..."
-                    text.replace('Реквизиты', '<a href="/#reqv">Реквизиты</a>').replace('реквизиты', '<a href="/#reqv">реквизиты</a>')
+                    text.replace('Реквизиты', '<a href="#reqv">Реквизиты</a>').replace('реквизиты',
+                                                                                       '<a href="#reqv">реквизиты</a>')
                 else:
                     text = ''
                     title = 'Фотоотчёт'
 
-                text += 'Источник: <a href="https://www.instagram.com/dommi_loserdie/">https://www.instagram.com/dommi_loserdie/</a>'
+                text += '\n\nИсточник: <a href="https://www.instagram.com/dommi_loserdie/">https://www.instagram.com/dommi_loserdie/</a>'
                 # если пост - это одно видео или одна картинка
                 if not 'edge_sidecar_to_children' in post['node']:
                     # если пост - это одно видео
@@ -56,7 +62,7 @@ def update_lenta():
                         # если пост - это одно видео
                         if post['node']['is_video']:
                             # article.videocover.save(fname, dest)
-                            #todo убрать создание фотографии, добавить парсинг текста
+                            # todo убрать создание фотографии, добавить парсинг текста
                             photo = models.Photo.objects.create(article=article)
                             photo.photo.save(fname, dest)
                             photo.save()
@@ -114,3 +120,11 @@ def update_lenta():
                     str(datetime.datetime.now()) + str(error) + "\n")
         except Exception as err:
             print(err)
+
+
+def fix_articles():
+    articles = models.Article.objects.filter(kind__pk=3)
+    for a in articles:
+        a.content = a.content.replace('Реквизиты', '<a href="#reqv">Реквизиты</a>').replace('реквизиты',
+                                                                                            '<a href="#reqv">реквизиты</a>') + '\n\nИсточник: <a href="https://www.instagram.com/dommi_loserdie/">https://www.instagram.com/dommi_loserdie/</a>'
+        a.save()

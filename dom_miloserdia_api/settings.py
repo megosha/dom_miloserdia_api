@@ -142,3 +142,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 EMAIL_CONFIG = env.email_url('EMAIL_URL', default='smtp://user@:password@localhost:25')
 vars().update(EMAIL_CONFIG)
+
+CELERY_BROKER_URL = env('CELERY_BROKER_URL')
+CELERY_ACCEPT_CONTENT = ["json"]
+CELERY_TASK_SERIALIZER = "json"
+CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
+CELERY_RESULT_SERIALIZER = "json"
+CELERY_TASK_RESULT_EXPIRES = 3600
+CELERYD_TASK_TIME_LIMIT = 3600

@@ -1441,7 +1441,7 @@ section.lazy-placeholder:after {
   padding-top: 90px;
   padding-bottom: 75px;
   background-color: #ffffff;
-  background: linear-gradient(0deg, #ffffff, #f4f8fa);
+  /*background: linear-gradient(0deg, #ffffff, #f4f8fa);*/
 }
 .cid-rSV2CiwTSX .nav {
   border: none;

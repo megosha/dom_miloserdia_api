@@ -182,10 +182,13 @@ class Policy(View):
 
 class Login(View):
     def dispatch(self, request, *args, **kwargs):
-        if self.request.user.is_authenticated:
-            return HttpResponseRedirect('/admin_domm')
-        else:
-            return super(Login, self).dispatch(request)
+        try:
+            if self.request.user.is_authenticated:
+                return HttpResponseRedirect('/admin_domm')
+            else:
+                return super(Login, self).dispatch(request)
+        except:
+            return HttpResponseRedirect('/login')
 
     def get(self, request):
         form = forms.Login()

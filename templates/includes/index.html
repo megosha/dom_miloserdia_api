@@ -114,7 +114,8 @@
                     <div class="card-img">
                         <h3 class="mbr-section-subtitle pb-1 mbr-fonts-style display-7">📅
                     {{ a.date_publish|date:"j M Y" }}</h3>
-                        <img class="custom" src="{% if a.cover %}{{ a.cover.url }}{% else %}{{ settings.default_cover.url }}{% endif %}" alt="">
+                        <img class="custom" src="{% if a.cover %}{{ a.cover.url }}{% else %}{{ settings.default_cover.url }}{% endif %}" alt=""
+                        onclick="location.href='/article/{{ a.pk }}'" style="cursor: pointer;">
                     </div>
                     <div class="card-box">
                         <p class="mbr-text mbr-fonts-style align-center display-7">

@@ -1094,7 +1094,8 @@ section.lazy-placeholder:after {
   display: inline-block;
 }
 .cid-rRBedsGt6w .slider-clients {
-  background: rgba(235, 236, 237, 0.8) none repeat scroll 0 0;
+  /*background: rgba(235, 236, 237, 0.8) none repeat scroll 0 0;*/
+  background: rgba(255, 255, 255, 1) none repeat scroll 0 0;
   outline: 1px solid rgba(0, 0, 0, 0.2);
   outline-offset: -15px;
   padding: 65px 50px;
@@ -1346,7 +1347,8 @@ section.lazy-placeholder:after {
   display: inline-block;
 }
 .cid-rSrn1Xu1JM .slider-clients {
-  background: rgba(235, 236, 237, 0.8) none repeat scroll 0 0;
+  /*background: rgba(235, 236, 237, 0.8) none repeat scroll 0 0;*/
+  background: rgba(255, 255, 255, 1) none repeat scroll 0 0;
   outline: 1px solid rgba(0, 0, 0, 0.2);
   outline-offset: -15px;
   padding: 65px 50px;

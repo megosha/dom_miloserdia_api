@@ -137,7 +137,8 @@ class Lenta(View):
 
 class Article(View):
     def get(self, request, article_id):
-        article = models.Article.objects.filter(pk=article_id, date_publish__lte=timezone.now(), kind__isnull=False).first()
+        article = models.Article.objects.filter(pk=article_id, date_publish__lte=timezone.now(),
+                                                kind__isnull=False).first()
         if not article:
             return HttpResponseRedirect('/')
         photos = models.Photo.objects.filter(article__pk=article_id)
@@ -217,6 +218,6 @@ class Logout(View):
             logout(self.request)
         return HttpResponseRedirect('/')
 
+
 def notfound(request, exception=None):
     return redirect('/')
-

@@ -76,6 +76,13 @@ class TerritoriaDobra(View):
         return render(request, 'includes/terriroria_dobra.html', context)
 
 
+class Mir(View):
+    def get(self, request):
+        photos = models.Photo.objects.filter(article__pk=123)
+        context = make_context(photos=photos)
+        return render(request, 'includes/mir.html', context)
+
+
 """  ИНФОРМАЦИЯ  """
 
 

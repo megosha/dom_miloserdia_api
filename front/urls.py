@@ -7,6 +7,7 @@ urlpatterns = [
     path('corp_radost/', views.CorpRadost.as_view()),
     path('den_miloserdia/', views.DenMiloserdia.as_view()),
     path('territoria_dobra/', views.TerritoriaDobra.as_view()),
+    path('mir/', views.Mir.as_view()),
     path('blagodarnost/', views.Blagodarnost.as_view()),
     path('otchet/', views.Otchet.as_view()),
     path('rehabilitation/', views.Rehabilitation.as_view()),

@@ -5,3 +5,4 @@ secret*
 /api/migrations/
 /static/assets/formoid.min.js
 /media/
+/front/migr_backup/

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html  >
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="../../static/assets/images/-mini-250x128.png" type="image/x-icon">
+  {% include "meta.html" %}
+
+  <title>Мир не обойдётся без тебя</title>
+  <link rel="stylesheet" href="../../static/assets/web/assets/mobirise-icons/mobirise-icons.css">
+  <link rel="stylesheet" href="../../static/assets/tether/tether.min.css">
+  <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap-grid.min.css">
+  <link rel="stylesheet" href="../../static/assets/bootstrap/css/bootstrap-reboot.min.css">
+  <link rel="stylesheet" href="../../static/assets/socicon/css/styles.css">
+  <link rel="stylesheet" href="../../static/assets/web/assets/gdpr-plugin/gdpr-styles.css">
+  <link rel="stylesheet" href="../../static/assets/dropdown/css/style.css">
+  <link rel="stylesheet" href="../../static/assets/theme/css/style.css">
+  <link rel="stylesheet" href="../../static/assets/wowslider-init/style.css">
+  <link rel="preload" as="style" href="../../static/assets/mobirise/css/mbr-additional.css"><link rel="stylesheet" href="../../static/assets/mobirise/css/mbr-additional.css" type="text/css">
+
+
+
+<link rel="stylesheet" href="../../static/assets/wowslider-init/boundary/style.css">
+</head>
+<body>
+{% include "navbar.html" %}
+<section class="content02 cid-rWRWOFkXEt" id="content02-3i">
+    <div class="container">
+                <h2 class="mbr-section-title mbr-bold pb-1 mbr-fonts-style display-1">Мир не обойдётся без тебя</h2>
+                <p class="mbr-text py-2 mbr-fonts-style display-7">
+                   Главная проблема ребёнка с ограниченными возможностями здоровья заключается в нарушении связи с миром, в ограниченной мобильности, бедности контактов со сверстниками и взрослыми, в ограниченности общения с природой, доступа к культурным ценностям, а иногда к элементарному образованию.<br>По мере взросления они начинают осознавать, что уровень их жизненных возможностей по сравнению с «обычными» детьми снижен. При этом формируются излишне заниженная самооценка, социальная пассивность, происходит сужение активного жизненного пространства.
+<br><br>Проект «Мир не обойдется без меня» старается восполнить дефицит общения, стабилизировать эмоциональное состояние ребёнка, создавая сюрпризные моменты, настраивающие ребёнка на положительные эмоции и контакт. Так же, данный проект позволяет ребёнку почувствовать уверенность в себе, свои возможности и востребованность в обществе. Любимые занятия поддерживают эмоциональное здоровье, помогают выйти из стрессов и тревожного состояния, предупреждают задержку психического развития.
+                </p>
+
+            </div>
+
+</section>
+
+<section class="mbr-wowslider-container mbr-section mbr-section__container carousel slide mbr-section-nopadding mbr-wowslider-container--boundary" data-ride="carousel" data-keyboard="false" data-wrap="true" data-interval="false" id="wowslider-14" data-rv-view="269" style="background-color: rgb(255, 255, 255);">
+    <div class="mbr-wowslider">
+        <div class="ws_images">
+            <ul>
+                {% for ph in photos %}
+                <li>
+
+                    <img src="{{ ph.photo.url }}" alt="" title="">
+                </li>
+
+                {% endfor %}
+
+            </ul>
+        </div>
+        <div class="ws_bullets">
+            <div>
+                <a href="#" title="">
+                    <span><img alt="slide1" src="{{ ph.photo.url }}" height="48" width="85"></span>
+                </a>
+            </div>
+        </div>
+        <div class="ws_shadow"></div>
+        <div class="mbr-wowslider-options">
+            <div class="params" data-paddingbottom="1" data-anim-type="kenburns" data-theme="boundary" data-autoplay="true" data-paddingtop="1" data-fullscreen="true" data-showbullets="false" data-timeout="2" data-duration="2" data-height="600" data-width="600" data-responsive="1" data-showcaptions="false" data-captionseffect="slide" data-hidecontrols="true"></div>
+        </div>
+</div></section>
+{% include "footer.html" %}
+
+  <script src="../../static/assets/web/assets/jquery/jquery.min.js"></script>
+  <script src="../../static/assets/popper/popper.min.js"></script>
+  <script src="../../static/assets/tether/tether.min.js"></script>
+  <script src="../../static/assets/bootstrap/js/bootstrap.min.js"></script>
+  <script src="../../static/assets/wowslider-plugin/wowslider.js"></script>
+  <script src="../../static/assets/touchswipe/jquery.touch-swipe.min.js"></script>
+  <script src="../../static/assets/dropdown/js/nav-dropdown.js"></script>
+  <script src="../../static/assets/dropdown/js/navbar-dropdown.js"></script>
+  <script src="../../static/assets/smoothscroll/smooth-scroll.js"></script>
+  <script src="../../static/assets/theme/js/script.js"></script>
+  <script src="../../static/assets/wowslider-init/script.js"></script>
+
+
+<script async src="../../static/assets/wowslider-effect/kenburns/script.js"></script>
+</body>
+</html>

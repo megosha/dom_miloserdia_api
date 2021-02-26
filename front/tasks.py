@@ -28,6 +28,8 @@ def update_lenta():
 
         article_kind = models.ArticleKind.objects.get(pk=3)
         response = requests.get(url, headers=headers)
+        if response.status_code != 200:
+            raise Exception(f'StatusCode not 200: {response.status_code}, {response.text}')
         response_json = response.json()
         posts = response_json['edges']
         for i, post in enumerate(posts):
@@ -146,9 +148,9 @@ def _get_detail_exception_info(exception_object: Exception):
 
         return '{message} ({code} in {file}: {line})'.format(
             message=str(exception_object),
-            code=exception_object._class.name_,
+            code=exception_object.__class__.__name__,
             file=os.path.split(sys.exc_info()[2].tb_frame.f_code.co_filename)[1],
             line=sys.exc_info()[2].tb_lineno,
         )
     else:
-        return f'{str(exception_object)} ({exception_object._class.name_})'
+        return f'{str(exception_object)} ({exception_object.__class__.__name__})'

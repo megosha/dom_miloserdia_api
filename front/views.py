@@ -94,7 +94,7 @@ class Blagodarnost(View):
 
 class Otchet(View):
     def get(self, request):
-        reports = models.Report.objects.all()
+        reports = models.Report.objects.all().order_by('-period')
         context = make_context(reports=reports)
         return render(request, 'includes/otchetnost.html', context)
 

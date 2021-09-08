@@ -707,24 +707,24 @@ section.lazy-placeholder:after {
   border-bottom: 3px solid #f1894c;
   padding: 2.5rem 2.5rem;
 }
-.cid-rRBaERKkOM .wrapper:before {
-  content: "";
-  background: #f1894c;
-  position: absolute;
-  bottom: 0;
-  width: 50%;
-  height: 3px;
-  right: 0;
-}
-.cid-rRBaERKkOM .wrapper:after {
-  content: "";
-  background: #f1894c;
-  position: absolute;
-  bottom: 0;
-  width: 10%;
-  height: 3px;
-  left: 0;
-}
+/*.cid-rRBaERKkOM .wrapper:before {*/
+/*  content: "";*/
+/*  background: #f1894c;*/
+/*  position: absolute;*/
+/*  bottom: 0;*/
+/*  width: 50%;*/
+/*  height: 3px;*/
+/*  right: 0;*/
+/*}*/
+/*.cid-rRBaERKkOM .wrapper:after {*/
+/*  content: "";*/
+/*  background: #f1894c;*/
+/*  position: absolute;*/
+/*  bottom: 0;*/
+/*  width: 10%;*/
+/*  height: 3px;*/
+/*  left: 0;*/
+/*}*/
 .cid-rRBaERKkOM img {
   position: absolute;
   left: 10%;

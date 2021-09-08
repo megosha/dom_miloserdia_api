@@ -704,13 +704,14 @@ section.lazy-placeholder:after {
   border-top: 3px solid #f1894c;
   border-right: 3px solid #f1894c;
   border-left: 3px solid #f1894c;
+  border-bottom: 3px solid #f1894c;
   padding: 2.5rem 2.5rem;
 }
 .cid-rRBaERKkOM .wrapper:before {
   content: "";
   background: #f1894c;
   position: absolute;
-  bottom: 0;
+  /*bottom: 0;*/
   width: 50%;
   height: 3px;
   right: 0;
@@ -719,7 +720,7 @@ section.lazy-placeholder:after {
   content: "";
   background: #f1894c;
   position: absolute;
-  bottom: 0;
+  /*bottom: 0;*/
   width: 10%;
   height: 3px;
   left: 0;

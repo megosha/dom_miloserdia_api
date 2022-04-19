@@ -50,7 +50,7 @@ def update_lenta():
                     text = ''
                     title = 'Фотоотчёт'
 
-                text += '\n\nИсточник: <a href="https://www.instagram.com/dommi_loserdie/">https://www.instagram.com/dommi_loserdie/</a>'
+                # text += '\n\nИсточник: <a href="https://www.instagram.com/dommi_loserdie/">https://www.instagram.com/dommi_loserdie/</a>'
                 # если пост - это одно видео или одна картинка
                 if not 'edge_sidecar_to_children' in post['node']:
                     # если пост - это одно видео

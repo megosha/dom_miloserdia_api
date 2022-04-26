@@ -189,3 +189,5 @@ LOGGING = {
         },
     },
 }
+
+FILE_UPLOAD_PERMISSIONS = 0o644

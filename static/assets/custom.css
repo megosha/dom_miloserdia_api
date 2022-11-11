@@ -1,0 +1,23 @@
+.custom .line {
+    width: 35px;
+    height: 3px;
+    display: inline-block;
+    background: #f1894c;
+    transition: background 0.3s;
+    margin-bottom: 2rem;
+}
+.custom {
+    background-color:#FFFFFF;
+}
+
+.custom H3 {
+  color: #2e2e2e;
+}
+
+.custom H2 {
+  color: #2e2e2e;
+}
+
+.custom H1 {
+  color: #2e2e2e;
+}

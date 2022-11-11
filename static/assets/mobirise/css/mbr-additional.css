@@ -6327,7 +6327,7 @@ section.lazy-placeholder:after {
 .cid-rSP7mfYvlQ {
   padding-top: 60px;
   padding-bottom: 45px;
-  background-color: #f4f8fa;
+  background-color: #FFFFFF;
 }
 .cid-rSP7mfYvlQ .mbr-overlay {
   background: linear-gradient(90deg, #149dcc, #b2ccd2);
@@ -8888,15 +8888,15 @@ section.lazy-placeholder:after {
   width: 35px;
   height: 3px;
   display: inline-block;
-  background: #ed4266;
+  background: #f1894c;
   transition: background 0.3s;
   margin-bottom: 2rem;
 }
 .cid-rWRWOFkXEt H2 {
-  color: #36404c;
+  color: #2e2e2e;
 }
 .cid-rWRWOFkXEt H3 {
-  color: #36404c;
+  color: #2e2e2e;
 }
 .cid-rWRWOFkXEt .mbr-text,
 .cid-rWRWOFkXEt .mbr-section-btn {

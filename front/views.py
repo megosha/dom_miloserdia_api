@@ -188,6 +188,12 @@ class Policy(View):
         return render(request, 'includes/policy.html', context)
 
 
+class Donate(View):
+    def get(self, request):
+        context = make_context()
+        return render(request, 'includes/donate.html', context)
+
+
 class Login(View):
     def dispatch(self, request, *args, **kwargs):
         try:

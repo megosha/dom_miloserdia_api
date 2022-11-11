@@ -18,5 +18,6 @@ urlpatterns = [
     path('article/<int:article_id>', views.Article.as_view()),
     path('policy/', views.Policy.as_view()),
     path('login/', views.Login.as_view()),
+    path('donate/', views.Donate.as_view()),
 
 ]

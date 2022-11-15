@@ -25,3 +25,9 @@
 .custom H1 {
   color: #2e2e2e;
 }
+
+@media (min-width: 992px) {
+.cta-mobile{
+    display: none;
+  }
+}

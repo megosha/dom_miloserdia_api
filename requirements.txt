@@ -2,7 +2,7 @@ amqp==2.6.0
 anyjson==0.3.3
 billiard==3.6.3.0
 celery==4.4.6
-certifi==2020.4.5.1
+certifi==2022.12.7
 chardet==3.0.4
 Django==2.2.12
 django-appconf==1.0.4

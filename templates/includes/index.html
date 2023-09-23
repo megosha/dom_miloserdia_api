@@ -73,24 +73,24 @@
     </div>
 </section>
 
-{#<section class="extClients cid-rRBb7ZCkE0" id="extClients2-5">#}
-{#    <!-- Block parameters controls (Blue "Gear" panel) -->#}
-{#    #}
-{#    <!-- End block parameters -->#}
-{#    <div class="container-fluid">#}
-{#        <div class="row justify-content-space-between align_middle">#}
-{#            <div class="col-md-12">#}
-{#                #}
-{#            </div>#}
-{#            {% for ip in important_partners %}#}
-{#                <div class="col-lg-1 col-md-3 card">#}
-{#                    <a href="/partner/{{ ip.pk }}" target="_blank" title="{{ ip.title }}" class="text-center">{% if ip.logo %}<img src="{{ ip.logo.url }}" alt="" title="">{% else %}{{ ip.title }}{% endif %}</a>#}
-{##}
-{#                </div>#}
-{#            {% endfor %}#}
-{#        </div>#}
-{#    </div>#}
-{#</section>#}
+<section class="extClients cid-rRBb7ZCkE0" id="extClients2-5">
+    <!-- Block parameters controls (Blue "Gear" panel) -->
+
+    <!-- End block parameters -->
+    <div class="container-fluid">
+        <div class="row justify-content-space-between align_middle">
+            <div class="col-md-12">
+
+            </div>
+            {% for ip in important_partners %}
+                <div class="col-lg-1 col-md-3 card">
+                    <a href="/partner/{{ ip.pk }}" target="_blank" title="{{ ip.title }}" class="text-center">{% if ip.logo %}<img src="{{ ip.logo.url }}" alt="" title="">{% else %}{{ ip.title }}{% endif %}</a>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
 <section class="mbr-section extFeatures cid-rRBd53SnxP mbr-parallax-background" id="extFeatures27-9">
 

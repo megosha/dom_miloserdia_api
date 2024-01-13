@@ -7,6 +7,7 @@ import requests
 import vk_api
 from django.conf import settings
 from django.utils import timezone
+from django.utils.text import Truncator
 
 from dom_miloserdia_api.celery import app
 from front import models
@@ -20,18 +21,56 @@ app.conf.task_default_queue = 'default'
 @app.task(name='front.tasks.get_from_vk', ignore_result=True)
 def get_from_vk():
     conf = models.Settings.objects.get()
-
     api = vk_api.VkApi(token=conf.vk_token).get_api()
-    result = api.wall.get(domain=conf.vk_group, filter="owner")
+    result = api.wall.get(domain=conf.vk_group, filter="owner", count=10)
     items = result.get('items')
 
     article_kind = models.ArticleKind.objects.get(pk=3)
+    count = 0
 
     for item in items:
-        article, new = models.Article.objects.get_or_create(
+        date_publish = timezone.make_aware(datetime.datetime.fromtimestamp(item['date']))
+        if date_publish.date() < conf.vk_start:
+            continue
+        post_id = item['id']
+        article, created = models.Article.objects.get_or_create(
             vk_id=post_id,
-            defaults={'date_publish': published, 'kind': article_kind}
+            defaults={
+                'date_publish': date_publish, 'kind': article_kind
+            }
         )
+        if not created:
+            continue
+        count += 1
+        text = item['text'] or ''
+        article.content = text
+        truncator = Truncator(text)
+        article.title = truncator.words(4, truncate='...')
+        article.save()
+
+        first_photo = True
+        attachments = item['attachments'] or []
+        for attachment in attachments:
+            if attachment['type'] != 'photo':
+                continue
+            attachment_photo = attachment['photo']
+            for size in attachment_photo['sizes']:
+                if size['type'] != 'z':
+                    continue
+                fname = f'vk_{post_id}_{attachment_photo["id"]}.jpg'
+                cover = os.path.join(settings.MEDIA_ROOT, 'images', 'covers', fname)
+                preview = requests.get(size['url'])
+                with open(cover, 'wb+') as dest:
+                    dest.write(preview.content)
+                    photo = models.Photo.objects.create(article=article)
+                    photo.photo.save(fname, dest)
+                    photo.save()
+                    if first_photo:
+                        article.cover.save(fname, dest)
+                        article.save()
+                        first_photo = False
+                break
+    return count
 
 
 @app.task(name='front.tasks.update_lenta', ignore_result=True)

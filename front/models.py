@@ -23,7 +23,7 @@ class Article(models.Model):
                              verbose_name="Тип статьи")
     instagram_id = models.CharField(max_length=100, default=None, blank=True, null=True, unique=True,
                                     verbose_name="id статьи в instagram")
-    # vk_id = models.CharField(max_length=100, default=None, blank=True, null=True, unique=True)
+    vk_id = models.PositiveIntegerField(blank=True, null=True, unique=True)
     date_create = models.DateField(auto_now_add=True, verbose_name="Дата создания статьи")
     date_publish = models.DateTimeField(verbose_name="Дата публикации статьи")
     title = models.CharField(max_length=250, verbose_name="Заголовок статьи")
@@ -84,6 +84,7 @@ class Report(models.Model):
 class Settings(models.Model):
     vk_token = models.CharField(max_length=250, default='', blank=True)
     vk_group = models.CharField(max_length=100, default='', blank=True)
+    vk_start = models.DateField(default='2022-12-02')
     instagram_id = models.CharField(max_length=20, default='', blank=True, null=True, verbose_name="User id аккаунта в instagram")
     rapidapi_url = models.URLField(default='', blank=True, null=True, verbose_name="Адрес запроса к rapidapi")
     rapidapi_header = JSONField(default=dict, blank=True, verbose_name="Заголовок запроса к rapidapi")

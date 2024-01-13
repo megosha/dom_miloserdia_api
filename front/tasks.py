@@ -1,21 +1,37 @@
 import datetime
+import logging
+import os
 import sys
 
-import os
-
 import requests
-# from PIL import Image
-
-# from django.core.files import File
-
+import vk_api
 from django.conf import settings
-from front import models
 from django.utils import timezone
 
 from dom_miloserdia_api.celery import app
-import logging
+from front import models
+
+# from PIL import Image
+# from django.core.files import File
 
 app.conf.task_default_queue = 'default'
+
+
+@app.task(name='front.tasks.get_from_vk', ignore_result=True)
+def get_from_vk():
+    conf = models.Settings.objects.get()
+
+    api = vk_api.VkApi(token=conf.vk_token).get_api()
+    result = api.wall.get(domain=conf.vk_group, filter="owner")
+    items = result.get('items')
+
+    article_kind = models.ArticleKind.objects.get(pk=3)
+
+    for item in items:
+        article, new = models.Article.objects.get_or_create(
+            vk_id=post_id,
+            defaults={'date_publish': published, 'kind': article_kind}
+        )
 
 
 @app.task(name='front.tasks.update_lenta', ignore_result=True)

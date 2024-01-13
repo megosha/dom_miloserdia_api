@@ -6,3 +6,4 @@ secret*
 /static/assets/formoid.min.js
 /media/
 /front/migr_backup/
+db.sqlite3

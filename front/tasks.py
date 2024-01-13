@@ -12,13 +12,8 @@ from django.utils.text import Truncator
 from dom_miloserdia_api.celery import app
 from front import models
 
-# from PIL import Image
-# from django.core.files import File
 
-app.conf.task_default_queue = 'default'
-
-
-@app.task(name='front.tasks.get_from_vk', ignore_result=True)
+@app.task(name='front.tasks.get_from_vk')
 def get_from_vk():
     conf = models.Settings.objects.get()
     api = vk_api.VkApi(token=conf.vk_token).get_api()
@@ -73,7 +68,7 @@ def get_from_vk():
     return count
 
 
-@app.task(name='front.tasks.update_lenta', ignore_result=True)
+@app.task(name='front.tasks.update_lenta')
 def update_lenta():
     try:
         tz = timezone.get_current_timezone()

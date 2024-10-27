@@ -6,6 +6,24 @@ from django.utils.translation import gettext as _
 from front.models import Article, Photo
 
 
+class MultipleFileInput(forms.ClearableFileInput):
+    allow_multiple_selected = True
+
+
+class MultipleFileField(forms.FileField):
+    def __init__(self, *args, **kwargs):
+        kwargs.setdefault("widget", MultipleFileInput())
+        super().__init__(*args, **kwargs)
+
+    def clean(self, data, initial=None):
+        single_file_clean = super().clean
+        if isinstance(data, (list, tuple)):
+            result = [single_file_clean(d, initial) for d in data]
+        else:
+            result = single_file_clean(data, initial)
+        return result
+
+
 class ShowAdminForm(forms.ModelForm):
     class Meta:
         model = Article
@@ -21,8 +39,7 @@ class ShowAdminForm(forms.ModelForm):
             "videocover",
         )
 
-    photos = forms.FileField(
-        widget=forms.ClearableFileInput(attrs={"multiple": True}),
+    photos = MultipleFileField(
         label=_("Добавить фотографии"),
         required=False,
     )

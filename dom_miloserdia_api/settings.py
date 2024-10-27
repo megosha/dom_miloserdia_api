@@ -30,7 +30,6 @@ DEBUG = env.bool('DEBUG', False)
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -45,7 +44,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'api',
     'front',
-    'django_celery_beat',
+    'django_q',
     # 'solo',
 ]
 
@@ -80,14 +79,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'dom_miloserdia_api.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
     'default': env.db(),
-    }
-
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -107,14 +104,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 THUMBNAIL_ALIASES = {
     "": {
         "small": {"size": (150, 150)},
         "slider": {"size": (1024, 576)}
     },
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
@@ -129,7 +124,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
@@ -137,6 +131,7 @@ if DEBUG:
     STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), os.path.join(BASE_DIR, 'media')]
 else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -144,13 +139,25 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 EMAIL_CONFIG = env.email_url('EMAIL_URL', default='smtp://user@:password@localhost:25')
 vars().update(EMAIL_CONFIG)
 
-CELERY_BROKER_URL = env('CELERY_BROKER_URL')
-CELERY_ACCEPT_CONTENT = ["json"]
-CELERY_TASK_SERIALIZER = "json"
-CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
-CELERY_RESULT_SERIALIZER = "json"
-CELERY_TASK_RESULT_EXPIRES = 3600
-CELERYD_TASK_TIME_LIMIT = 3600
+# CELERY_BROKER_URL = env('CELERY_BROKER_URL')
+# CELERY_ACCEPT_CONTENT = ["json"]
+# CELERY_TASK_SERIALIZER = "json"
+# CELERY_RESULT_BACKEND = "redis://localhost:6379/0"
+# CELERY_RESULT_SERIALIZER = "json"
+# CELERY_TASK_RESULT_EXPIRES = 3600
+# CELERYD_TASK_TIME_LIMIT = 3600
+
+Q_CLUSTER = {
+    'workers': 1,
+    'recycle': 10,
+    'timeout': 30 * 60,
+    'max_attempts': 1,
+    'retry': 40 * 60,
+    'save_limit': 50,
+    'save_limit_per': 'func',
+    'guard_cycle': 30,
+    'orm': 'default'
+}
 
 LOG_PATH = os.path.join(BASE_DIR, "logs")
 LOGGING = {

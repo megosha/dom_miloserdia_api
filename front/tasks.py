@@ -9,11 +9,11 @@ from django.conf import settings
 from django.utils import timezone
 from django.utils.text import Truncator
 
-from dom_miloserdia_api.celery import app
+# from dom_miloserdia_api.celery import app
 from front import models
 
 
-@app.task(name='front.tasks.get_from_vk')
+# @app.task(name='front.tasks.get_from_vk')
 def get_from_vk():
     conf = models.Settings.objects.get()
     api = vk_api.VkApi(token=conf.vk_token).get_api()
@@ -68,7 +68,7 @@ def get_from_vk():
     return count
 
 
-@app.task(name='front.tasks.update_lenta')
+# @app.task(name='front.tasks.update_lenta')
 def update_lenta():
     try:
         tz = timezone.get_current_timezone()
@@ -180,8 +180,11 @@ def update_lenta():
 def fix_articles():
     articles = models.Article.objects.filter(kind__pk=3)
     for a in articles:
-        a.content = a.content.replace('Реквизиты', '<a href="#reqv">Реквизиты</a>').replace('реквизиты',
-                                                                                            '<a href="#reqv">реквизиты</a>') + '\n\nИсточник: <a href="https://www.instagram.com/dommi_loserdie/">https://www.instagram.com/dommi_loserdie/</a>'
+        a.content = a.content.replace(
+            'Реквизиты', '<a href="#reqv">Реквизиты</a>').replace(
+            'реквизиты', '<a href="#reqv">реквизиты</a>'
+        ) + ('\n\nИсточник: <a href="https://www.instagram.com/dommi_loserdie/">'
+             'https://www.instagram.com/dommi_loserdie/</a>')
         a.save()
 
 

@@ -30,6 +30,7 @@ DEBUG = env.bool('DEBUG', False)
 
 ALLOWED_HOSTS = ['*']
 CSRF_TRUSTED_ORIGINS = 'https://dommiloserdie.ru', 'http://127.0.0.1'
+APPEND_SLASH = True
 
 # Application definition
 

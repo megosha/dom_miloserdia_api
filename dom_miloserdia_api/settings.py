@@ -86,6 +86,8 @@ DATABASES = {
     'default': env.db(),
 }
 
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -157,6 +159,10 @@ Q_CLUSTER = {
     'save_limit_per': 'func',
     'guard_cycle': 30,
     'orm': 'default'
+}
+
+Q_SCHEDULER = {
+    'front.tasks.get_from_vk': '15 17 * * *',
 }
 
 LOG_PATH = os.path.join(BASE_DIR, "logs")

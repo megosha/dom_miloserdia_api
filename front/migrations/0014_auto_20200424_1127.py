@@ -2,7 +2,6 @@
 
 import datetime
 from django.db import migrations, models
-from django.utils.timezone import utc
 
 
 class Migration(migrations.Migration):
@@ -20,6 +19,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='article',
             name='date_publish',
-            field=models.DateField(default=datetime.datetime(2020, 4, 24, 4, 27, 2, 600427, tzinfo=utc), verbose_name='Дата публикации статьи'),
+            field=models.DateField(default=datetime.datetime(2020, 4, 24, 4, 27, 2, 600427), verbose_name='Дата публикации статьи'),
         ),
     ]

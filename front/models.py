@@ -1,12 +1,7 @@
-from datetime import datetime
-
 from django.db import models
-# from django.contrib.postgres.fields import ArrayField
-from django.contrib.postgres.fields import JSONField
 from django_better_admin_arrayfield.models.fields import ArrayField
 
 
-# Create your models here.
 class ArticleKind(models.Model):
     kind = models.CharField(max_length=100, verbose_name="Тип статьи")
 
@@ -19,9 +14,8 @@ class ArticleKind(models.Model):
 
 
 class Article(models.Model):
-    kind = models.ForeignKey('ArticleKind', null=True, blank=True, default=None, on_delete=models.SET_DEFAULT,
-                             verbose_name="Тип статьи")
-    instagram_id = models.CharField(max_length=100, default=None, blank=True, null=True, unique=True,
+    kind = models.ForeignKey('ArticleKind', null=True, blank=True, on_delete=models.SET_NULL, verbose_name="Тип статьи")
+    instagram_id = models.CharField(max_length=100, blank=True, null=True, unique=True,
                                     verbose_name="id статьи в instagram")
     vk_id = models.PositiveIntegerField(blank=True, null=True, unique=True)
     date_create = models.DateField(auto_now_add=True, verbose_name="Дата создания статьи")
@@ -40,13 +34,14 @@ class Article(models.Model):
     def __str__(self):
         return f'{self.kind} -  {self.title} - {self.date_create}'
 
+
 class Photo(models.Model):
-    article = models.ForeignKey('Article', null=True, blank=True, default=None, on_delete=models.CASCADE,
-                             verbose_name="Статья")
+    article = models.ForeignKey('Article', null=True, blank=True, on_delete=models.CASCADE, verbose_name="Статья")
     photo = models.ImageField(upload_to='images/articles/', verbose_name="Фотографии (одна или несколько)")
 
     def __str__(self):
         return f'{self.photo.name}'
+
 
 class Partner(models.Model):
     # если есть сайт, то по нажатию на лого - на сайт, иначе на страницу партнера на сайте
@@ -58,7 +53,8 @@ class Partner(models.Model):
     activity = models.CharField(max_length=250, blank=True, verbose_name="Сфера деятельности")
     email = models.EmailField(blank=True, verbose_name="Email")
     address = models.CharField(max_length=250, blank=True, verbose_name="Адрес")
-    phones = ArrayField(models.CharField(max_length=25, null=True, blank=True), null=True, blank=True, verbose_name="Телефон/телефоны")
+    phones = ArrayField(models.CharField(max_length=25, null=True, blank=True), null=True, blank=True,
+                        verbose_name="Телефон/телефоны")
 
     class Meta:
         ordering = ["title"]
@@ -81,18 +77,22 @@ class Report(models.Model):
     def __str__(self):
         return f'{self.title}'
 
+
 class Settings(models.Model):
     vk_token = models.CharField(max_length=250, default='', blank=True)
     vk_group = models.CharField(max_length=100, default='', blank=True)
     vk_start = models.DateField(default='2022-12-02')
-    instagram_id = models.CharField(max_length=20, default='', blank=True, null=True, verbose_name="User id аккаунта в instagram")
+    instagram_id = models.CharField(max_length=20, default='', blank=True, null=True,
+                                    verbose_name="User id аккаунта в instagram")
     rapidapi_url = models.URLField(default='', blank=True, null=True, verbose_name="Адрес запроса к rapidapi")
-    rapidapi_header = JSONField(default=dict, blank=True, verbose_name="Заголовок запроса к rapidapi")
+    rapidapi_header = models.JSONField(default=dict, blank=True, verbose_name="Заголовок запроса к rapidapi")
     mailto = ArrayField(models.EmailField(), verbose_name="Почта, для уведомлений обратной связи")
     metadescr = models.TextField(default='', blank=True, null=True, verbose_name="Meta Description")
     metakeywords = models.TextField(default='', blank=True, null=True, verbose_name="Meta Keyword")
-    default_cover = models.ImageField(upload_to='images/covers/', blank=True, verbose_name="Обложка статьи по умолчанию")
-    default_videocover = models.ImageField(upload_to='images/covers/', blank=True, verbose_name="Обложка видео по умолчанию")
+    default_cover = models.ImageField(upload_to='images/covers/', blank=True,
+                                      verbose_name="Обложка статьи по умолчанию")
+    default_videocover = models.ImageField(upload_to='images/covers/', blank=True,
+                                           verbose_name="Обложка видео по умолчанию")
 
     class Meta:
         verbose_name = "Настройки"

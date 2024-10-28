@@ -1,6 +1,7 @@
 from django.urls import re_path, path
 
 from front import views
+from front.tasks import create_tasks
 
 urlpatterns = [
     path('', views.Index.as_view()),
@@ -21,14 +22,6 @@ urlpatterns = [
     path('donate/', views.Donate.as_view()),
 
 ]
-
-
-def create_tasks():
-    from django_q.models import Schedule
-    from dom_miloserdia_api.settings import Q_SCHEDULER
-
-    for task, cron in Q_SCHEDULER.items():
-        Schedule.objects.update_or_create(func=task, defaults=dict(schedule_type=Schedule.CRON, cron=cron))
 
 
 create_tasks()

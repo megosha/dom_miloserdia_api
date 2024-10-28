@@ -12,6 +12,14 @@ from django.utils.text import Truncator
 from front import models
 
 
+def create_tasks():
+    from django_q.models import Schedule
+    from dom_miloserdia_api.settings import Q_SCHEDULER
+
+    for task, cron in Q_SCHEDULER.items():
+        Schedule.objects.update_or_create(func=task, defaults=dict(schedule_type=Schedule.CRON, cron=cron))
+
+
 # @app.task(name='front.tasks.get_from_vk')
 def get_from_vk():
     conf = models.Settings.objects.get()

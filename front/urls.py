@@ -29,3 +29,6 @@ def create_tasks():
 
     for task, cron in Q_SCHEDULER.items():
         Schedule.objects.update_or_create(func=task, defaults=dict(schedule_type=Schedule.CRON, cron=cron))
+
+
+create_tasks()

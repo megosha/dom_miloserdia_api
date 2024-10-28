@@ -44,9 +44,9 @@ INSTALLED_APPS = [
     'django_better_admin_arrayfield',
     'easy_thumbnails',
     'rest_framework',
+    'django_q',
     'api',
     'front',
-    'django_q',
     # 'solo',
 ]
 

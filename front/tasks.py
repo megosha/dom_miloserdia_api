@@ -8,16 +8,8 @@ import vk_api
 from django.conf import settings
 from django.utils import timezone
 from django.utils.text import Truncator
-from django_q.models import Schedule
 
-from dom_miloserdia_api.settings import Q_SCHEDULER
-# from dom_miloserdia_api.celery import app
 from front import models
-
-
-def create_tasks():
-    for task, cron in Q_SCHEDULER.items():
-        Schedule.objects.update_or_create(func=task, defaults=dict(schedule_type=Schedule.CRON, cron=cron))
 
 
 # @app.task(name='front.tasks.get_from_vk')
